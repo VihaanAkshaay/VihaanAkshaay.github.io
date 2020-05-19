@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "Welcome to devlopr !"
+title:  "Welcome to Vihaan's blog"
 summary: Hello World ! This is a sample post
-author: John Doe
+author: Vihaan Akshaay
 date: '2019-05-22 14:35:23 +0530'
 category: jekyll
 thumbnail: code.jpg

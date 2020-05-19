@@ -1,7 +1,7 @@
-title: devlopr
-subtitle: A Jekyll Theme Built for Developers
+title: Vihaan
+subtitle:  This kid loves building ROBOTS!
 description: >- # this means to ignore newlines until "baseurl:"
-  devlopr-jekyll is a Jekyll Theme Built For Developers
+  Now where does this go?
 
 url: "" # the base hostname & protocol for your site, e.g. https://example.github.io
 baseurl: "" # the subpath of your site, e.g. /blog
@@ -25,9 +25,10 @@ urls:
 # Edit these details
 
 author_logo: profile.png
-author: John Doe
-author_bio: Hi, my name is John Doe. I built this site using devlopr-jekyll :D
-author_email: "johndoe@gmail.com"
+author: Vihaan Akshaay
+author_bio: Life is a continuous learning process! 
+            A very enthusiastic and dedicated sophomore, currently pursuing a B.Tech degree in mechanical engineering from IIT Madras. Versatile, quick to grasp and loves to collaborate, currently working on the mechanical and software aspect of robotics, hoping to make it big.
+author_email: "akswins001@gmail.com"
 author_location: India
 author_website_url: "http://johndoe.com"
 typewrite-text: devlopr is a jekyll theme built for developers. You can edit this in _config.yml file
@@ -67,16 +68,10 @@ author_project_details:
                 visibility: true
 
 # social links
-twitter_username: johndoe
-github_username:  sujaykundu777
-facebook_username: johndoe
-linkedin_username: johndoe
-behance_username: johndoe
+github_username:  VihaanAkshaay
+facebook_username: god.of.miscrit3
+linkedin_username: vihaanakshaayrajendiran
 instagram_username: johndoe
-medium_username: johndoe
-telegram_username: johndoe
-dribbble_username: johndoe
-flickr_username: johndoe
 
 #for comments ( we got Disqus and Hyvor Commenting, uncomment the one you want to use )
 
