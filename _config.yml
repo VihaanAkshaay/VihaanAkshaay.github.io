@@ -1,4 +1,4 @@
-title: Heyyy!
+title: Beep Beep!
 subtitle:  This kid loves building ROBOTS!
 description: >- # this means to ignore newlines until "baseurl:"
   Now where does this go?
@@ -11,24 +11,22 @@ urls:
       url: /about
     - text: Blog
       url: /blog
-    - text: Contact Me
-      url : /contact
 
 # Edit these details
 
 author_logo: profile.png
 author: Vihaan Akshaay
 author_bio: Life is a continuous learning process! 
-            A very enthusiastic and dedicated sophomore, currently pursuing a B.Tech degree in mechanical engineering from IIT Madras. Versatile, quick to grasp and loves to collaborate, currently working on the mechanical and software aspect of robotics, hoping to make it big.
+            A very enthusiastic and dedicated undergrad, currently pursuing a B.Tech degree in mechanical engineering from IIT Madras. Versatile, quick to grasp and loves to collaborate, currently working on the mechanical and software aspect of robotics, hoping to make it big.
 author_email: "akswins001@gmail.com"
 author_location: India
 typewrite-text: For some reason I've decided to log my prattle and rants here! I've warned you! xD 
 
 author_work_experiences:
-            - company_name: Google
-              company_logo: google.png
-              company_url: https://google.com
-              designation: Software Engineer
+            - company_name: iBot Club, Centre for Innovation
+              company_logo: ib.png
+              company_url: http://cfi.iitm.ac.in/wordpress/index.php/ibot-club/
+              designation: iBot(Robotics) Club Head
               description: Worked on various Google Products
               visibility: true
             - company_name: Microsoft
