@@ -1,4 +1,4 @@
-title: Home is where the <3 is!
+title: Heyyy!
 subtitle:  This kid loves building ROBOTS!
 description: >- # this means to ignore newlines until "baseurl:"
   Now where does this go?
@@ -39,11 +39,11 @@ author_work_experiences:
               visibility: true
 
 author_education_details:
-              - college_logo: mit.png
-                college_name: MIT
-                college_url: https://mit.org
-                college_degree: CS Engineer
-                description: Bachelor of Technology
+              - college_logo: iitmlogo.png
+                college_name: Indian Institute of Technology, Madras
+                college_url: https://www.iitm.ac.in/
+                college_degree: Roboticist
+                description: Bachelor of Technology in Mechanical Engineering & Inter Disciplinary Master of Technology in Robotics
                 visibility: true
 
 author_project_details:
