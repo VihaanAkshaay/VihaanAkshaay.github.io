@@ -24,6 +24,6 @@ To be very honest, from the resources I've been exposed to, I've not come across
 Let's go over an example to understand how this division works. Imagine you're asked to pick up a certain object in front of you. A quick breakdown of how you would perform the above task would be <br/>
  - You will look at the surroundings and locate the object of interest. (*perception*)
 - You would decide on how you're going to move your body, hands in specific to reach the object without colliding with obstacles in the scene (*decision making*)
-- Now you'd perform the action by moving your hands, grasping the object and taking it to the goal position.(*action!)*
+- Now you'd perform the action by moving your hands, grasping the object and taking it to the goal position(*action!)*
 
 

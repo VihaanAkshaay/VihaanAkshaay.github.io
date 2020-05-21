@@ -27,20 +27,26 @@ author_work_experiences:
               company_logo: ib.png
               company_url: http://cfi.iitm.ac.in/wordpress/index.php/ibot-club/
               designation: iBot(Robotics) Club Head
-              description: Worked on various Google Products
+              description: Managed and mentored various projects as well as conducted robotics oriented session with the aim of improving the tech culture in the institute.
               visibility: true
-            - company_name: Microsoft
-              company_logo: microsoft.png
-              company_url: https://microsoft.com
-              designation: Azure Developer
-              description: Worked on various Azure Cloud Products
+            - company_name: Ramakrishna Math, Chennai
+              company_logo: rkm.png
+              company_url: https://chennaimath.org/
+              designation: Robotics Intern
+              description: Worked on 'Biley Bot', a lifelike, interactive humanoid robot of young Swami Vivekananda, soon to be displayed in Vivekanandar House Museum, Chennai. 
+              visibility: true
+            - company_name: Toyota Kirloskar Motor Pvt Ltd
+              company_logo: toyota.png
+              company_url: https://en.wikipedia.org/wiki/Toyota_Kirloskar_Motor
+              designation: Summer Engineering Intern
+              description: Industrial internship with on-field experience from a reputed manufacturing factory. Experience on workshop floor included a project study on Backdoor Cushion Rubber Miss Elimination.
               visibility: true
 
 author_education_details:
               - college_logo: iitmlogo.png
                 college_name: Indian Institute of Technology, Madras
                 college_url: https://www.iitm.ac.in/
-                college_degree: Roboticist
+                college_degree: Dual Degree (B.Tech in Mechanical Engineering + M.Tech in Robotics) 
                 description: Bachelor of Technology in Mechanical Engineering & Inter Disciplinary Master of Technology in Robotics
                 visibility: true
 
