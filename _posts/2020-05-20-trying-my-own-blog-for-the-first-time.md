@@ -26,4 +26,10 @@ Let's go over an example to understand how this division works. Imagine you're a
 - You would decide on how you're going to move your body, hands in specific to reach the object without colliding with obstacles in the scene (*decision making*)
 - Now you'd perform the action by moving your hands, grasping the object and taking it to the goal position(*action!)*
 
+Getting a little more in-detail about the sub-topics mentioned, 
+
+**perception** - This module corresponds to the part where the robot tries to first get data from the surroundings. To do this, the robot requires a lot of sensors 
+
+........... Still Processing :P ..........
+
 
