@@ -2,7 +2,7 @@
 layout: post
 title: ' "How do I start building robots?" '
 author: Vihaan Akshaay
-date: '2020-05-20 14:35:23 +0530'
+date: '2020-08-03 18:00:23 +0530'
 category: Beginner
 summary: This post gives a rough base for a person to get started with robotics
 thumbnail: toyrobot.png
