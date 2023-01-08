@@ -31,7 +31,6 @@ Let's go over an example to understand how this division works. Imagine you're a
 - You would decide on how you're going to move your body, hands in specific to reach the object without colliding with other obstacles in the scene (*decision making*)
 - Now you'd perform the action by moving your hands, grasping the object and taking it to the goal position(*action!)*
 
-Getting a little more in-detail about the sub-topics mentioned, 
 
 ##### Perception 
 
