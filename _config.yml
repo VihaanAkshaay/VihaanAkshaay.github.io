@@ -12,17 +12,23 @@ urls:
     - text: Blog
       url: /blog
 
-# Edit these details
+# Edit these details  
 
 author_logo: profile.png
 author: Vihaan Akshaay
 author_bio: Life is a continuous learning process! 
             A very enthusiastic and dedicated undergrad, currently pursuing a B.Tech degree in mechanical engineering from IIT Madras. Versatile, quick to grasp and loves to collaborate, currently working on the mechanical and software aspect of robotics, hoping to make it big.
-author_email: "akswins001@gmail.com"
-author_location: India
+author_email: "vihaanakshaay@gmail.com"
+author_location: Santa Barbara, California
 typewrite-text: For some reason I've decided to log my prattle and rants here! I've warned you! xD 
 
 author_work_experiences:
+            - company_name: Jackson Laboratory
+              company_logo: JAX.png
+              company_url: https://www.kumarlab.org
+              designation: Graduate Student Researcher
+              description: Developed unsupervised techniques to discover stereotyped behaviours exhibited by mice moving in a fixed arena. Computer Vision models were used for pose estimation from video data recorded by Jackson Labs are improved. By modeling behaviours as hierarchies, new option discovery algorithms were implemented to identify repeated behaviours. Dr. Ravindran B, Indian Institute of Technology Madras & Dr. Vivek Kumar, Jackson Labs, Bar Harbor, Maine.
+              visibility: true
             - company_name: iBot Club, Centre for Innovation
               company_logo: ib.png
               company_url: http://cfi.iitm.ac.in/wordpress/index.php/ibot-club/
@@ -43,6 +49,12 @@ author_work_experiences:
               visibility: true
 
 author_education_details:
+              - college_logo: ucsb.jpeg
+                college_name: University of California, Santa Barbara
+                college_url: https://www.ucsb.edu
+                college_degree: Master of Science 
+                description: Master of Science in Computer Science (Machine Learning Specialization)
+                visibility: true
               - college_logo: iitmlogo.png
                 college_name: Indian Institute of Technology, Madras
                 college_url: https://www.iitm.ac.in/
