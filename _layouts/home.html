@@ -16,6 +16,21 @@ layout: default
       {% if site.github_username %} {%- include github_follow_button.html -%} {%
       endif %} 
     </div>
+
+              <!-- home hero section -->
+    <div class="jumbotron">
+                <!-- uncomment/modify buttons as you want-->
+      <div class="jumbotron-btns">
+        <a href="{{site.url}}{{site.baseurl}}/assets/img/Big_CV.pdf">
+          <button class="btn btn-md btn-warning"> <strong>Download CV</strong> </button>
+        </a>
+        <a href="mailto:vihaanakshaay@ucsb.edu">
+          <button class="btn btn-md btn-default"> <strong>Contact</strong> </button>
+        </a>
+      </div>
+    </div>
+
+
     <div class="col-lg-8 offset-md-2">
       <section id="recent-articles">
         <div id="recent-articles-header">
@@ -27,38 +42,33 @@ layout: default
           </div>
         </div>
         <br />
+          
 
-        <style>
-          /* change cover_img in config.yml */
-          .jumbotron {
-              background-color: var(--main-background-color) !important;
-              background-image: url('/assets/img/{{site.hero_cover_img}}');
-              text-align: center;
-              background-attachment: fixed;
-              background-size: cover;
-              background-position: center;
-          }
-          .jumbotron-btns {
-            display: block;
-            margin-top: 50px;
-          }
-          
-          .jumbotron-heading, .lead {
-            color: #fff;
-          }
-          </style>
-          
-          <!-- home hero section -->
-          <div class="jumbotron">
-            <!-- uncomment/modify buttons as you want-->
-            <div class="jumbotron-btns">
-              <a href="{{site.url}}{{site.baseurl}}/assets/img/Big_CV.pdf">
-                <button class="btn btn-md btn-warning"> <strong>Download CV</strong> </button>
-              </a>
-              <a href="mailto:vihaanakshaay@ucsb.edu">
-                <button class="btn btn-md btn-default"> <strong>Contact</strong> </button>
-               </a>
-            </div>
-          </div>
+
+        <ul>
+          {% for post in site.posts limit:5 %}
+          <li class="article-card">
+            <a href="{{post.url}}" class="article-card-link">
+              <div id="article-container">
+                <div id="article-img">
+                  <img
+                    src="/assets/img/{{site.author_logo}}"
+                    width="50px"
+                    height="50px"
+                  />
+                </div>
+                <div id="article-link">
+                    <p class="recent-article-link">{{post.title}} <span style="color: #ccc; font-size: 15px;"> - <i><time datetime="{{ post.date }}" itemprop="datePublished">{{ post.date | date: "%b %-d, %Y" }}</time></i></span></p>
+                  </div>
+                  <div id="article-alert">
+                  {% for cat in post.category limit:1 %}
+                   <button class="btn btn-sm btn-dark">{{cat}}</button>
+                  {% endfor %}
+                  </div>
+              </div>
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
       </section>
     </div>
