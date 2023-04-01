@@ -15,6 +15,9 @@ Below is the link to multiple resources in LLM + Robotics:<br/>
 
 Below is a quick summary of some relevant papers from the above link.<br/>
 
+## Is this a survey paper? Have to check:
+[Grounding ‘Grounding’ in NLP](https://aclanthology.org/2021.findings-acl.375.pdf)
+
 ## Some Research Papers (Related to Grounding):
 [Grounding Large Language Models in Interactive Environments with Online Reinforcement Learning](https://arxiv.org/pdf/2302.02662.pdf)
 [Grounded Decoding: Guiding Text Generation with Grounded Models for Robot Control](https://grounded-decoding.github.io)

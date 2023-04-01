@@ -1,0 +1,37 @@
+<style>
+/* change cover_img in config.yml */
+.jumbotron {
+    background-color: var(--main-background-color) !important;
+    background-image: url('/assets/img/{{site.hero_cover_img}}');
+    text-align: center;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+}
+.jumbotron-btns {
+  display: block;
+  margin-top: 50px;
+}
+    
+.jumbotron-heading, .lead {
+  color: #fff;
+}
+</style>
+    
+<!-- home hero section -->
+<div class="jumbotron">
+  <img class="author-profile-img" src="{{site.url}}{{site.baseurl}}/assets/img/{{site.author_logo}}" />
+  <p class="jumbotron-heading">Hello World, this is {{site.author}} !</p>
+
+  <p class="lead">The eyes may be windows to the soul, but they surely are doors to the brain...</p>
+   
+  <!-- uncomment/modify buttons as you want-->
+  <div class="jumbotron-btns">
+    <a href="{{site.url}}{{site.baseurl}}/assets/img/Srijita_CV.pdf">
+      <button class="btn btn-md btn-warning"> <strong>Download CV</strong> </button>
+   </a>
+    <a href="mailto:vihaanakshaay@ucsb.edu">
+       <button class="btn btn-md btn-default"> <strong>Contact</strong> </button>
+     </a>
+  </div>
+</div>
