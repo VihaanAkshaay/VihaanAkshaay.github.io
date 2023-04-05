@@ -32,6 +32,48 @@ Below is a quick summary of some relevant papers from the above link.<br/>
 [Natural Language-conditioned Reinforcement Learning with Inside-out Task Language Development and Translation](https://arxiv.org/pdf/2302.09368.pdf)
 
 
+# What is Grounding????? Psychology behind it!!
+LLMs were able to obtain a decent understanding of physical rules of the...
+But lacked grounding ....
+
+Grounding according to Cognitive Studies - 'Grounding is the process of building a common ground based on shared mutual information in order to successfully communicate' (or) 'What mutual information is needed to establish successful communication'
+Current research/state of grounding has gaps in three dimensions - Coordination in grounding, Purviews of grounding & Constraints of grounding.
+We first understand each of them to investigate them further.
+
+According to Cognitive Science, "grounding" is "The process of establishing what mutual informatin is required for successful communication between two interlocutors" (interlocutors - communicator)
+
+Grounding can majorly be put into three classes.
+'direct grounding', 'indirect grounding' and 'functional grounding'
+
+1) Coordination in Grounding: (Static & Dynamic)
+
+*Static Grounding* assumes that 'evidence for common ground or the gold truth for grounding is given/attained psuedo-automatically'.
+*Dynamic Grounding* claims that 'common ground / mutual information needed is attained through interactions/feedback'
+
+Insert the example image from grounding grounding paper.
+
+CLAIM: *prioritize dynamic grounding*
+
+2) Purviews of Grounding: 
+This talks about 'different stages behind reaching a common ground'.
+
+a) Localization: This is a function purely of the agent. This is the ability of the agent to localize the concept.
+If the agent had to locate a 'blue sweater' it has to understand the concepts of blue and sweater and as a composition of the whole unit.
+
+b) External Knowledge: After localizing the concept, the next step is to ensure consistency of current context of concept with existing knowledge.
+Most of current efforts (Verify?) are focused on localizing with few efforts to maintain consistency of grounded concept across many other knowledge sources.
+
+c) Common Sense: Once the basic grounding is done, some scenario-based grounding that is observable helps in building a common ground that does not always need articulation of meticulous details.
+
+d) Personalized consensus: 
+
+3) Constraints of Grounding:
+ 
+
+#### Grounding 'Grounding'
+This section 
+
+
 ## Paper Discussion
 Our main paper to discuss (Along with relevant resources and citations expanded) for this blog post would be [Grounding Large Language Models in Interactive Environments with Online Reinforcement Learning](https://arxiv.org/pdf/2302.02662.pdf).
 
@@ -53,7 +95,7 @@ Observation Space: List of template descriptions of the following format.
 
 
 
-For baselines, the first basic one is [DRRN](https://arxiv.org/pdf/1606.03667.pdf). Explanation for the above is provided here.
+For baselines, the first basic one is [DRRN](https://arxiv.org/pdf/1606.03667.pdf) - Deep Reinforcement Relevance Network (Add an image here). Explanation for the above is provided here.
 
 
 #### Training:
