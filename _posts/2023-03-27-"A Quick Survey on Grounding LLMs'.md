@@ -8,9 +8,18 @@ summary: This post is to put together current research on Grounding LLMs
 thumbnail: robot-coding.png
 ---
 
+# Contents
+This post is an attempt at writing a quick introduction to grounding LLMs with the real world in an abstract sense.
+I aim on trying to understand the term 'grounding' in the aspect of LLMs in Mostly Robotics environments. For this purpose, we investigate and break down three papers.
 
+**Paper 1** - [Grounding 'grounding' in NLP](http://www.cs.cmu.edu/~awb/papers/2021.findings-acl.375.pdf). \
+**Paper 2** - [Grounding Large Language Models in Interactive Environments with Online Reinforcement Learning](https://arxiv.org/pdf/2302.02662.pdf) \
+**Paper 3** - [Grounded Decoding: Guiding Text Generation with Grounded Models for Robot Control](https://grounded-decoding.github.io)
 
-# What is Grounding????? Psychology behind it!!
+## [Paper 1](http://www.cs.cmu.edu/~awb/papers/2021.findings-acl.375.pdf):
+In short, this paper tries to explain the gap between the psychological 'grounding' and the grounding in research and suggests ideas to bridge this gap (in a very abstract sense).
+
+### What is Grounding????? Psychology behind it!!
 LLMs were able to obtain a decent understanding of physical rules of the...
 But lacked grounding ....
 
@@ -20,13 +29,12 @@ We first understand each of them to investigate them further.
 
 According to Cognitive Science, "grounding" is "The process of establishing what mutual informatin is required for successful communication between two interlocutors" (interlocutors - communicator)
 
-Grounding can majorly be put into three classes.
-'direct grounding', 'indirect grounding' and 'functional grounding'
+Grounding can majorly be put into three classes - *'direct grounding'*, *'indirect grounding'* and *'functional grounding'*
 
 1) Coordination in Grounding: (Static & Dynamic)
 
-*Static Grounding* assumes that 'evidence for common ground or the gold truth for grounding is given/attained psuedo-automatically'.
-*Dynamic Grounding* claims that 'common ground / mutual information needed is attained through interactions/feedback'
+**Static Grounding** assumes that 'evidence for common ground or the gold truth for grounding is given/attained psuedo-automatically'.
+**Dynamic Grounding** claims that 'common ground / mutual information needed is attained through interactions/feedback'
 
 Insert the example image from grounding grounding paper.
 
@@ -52,8 +60,13 @@ d) Personalized consensus:
 This section covers grounding adapted to 'NLP'
 
 
-## Paper Discussion
-Our main paper to discuss (Along with relevant resources and citations expanded) for this blog post would be [Grounding Large Language Models in Interactive Environments with Online Reinforcement Learning](https://arxiv.org/pdf/2302.02662.pdf).
+## [Paper 2](https://arxiv.org/pdf/2302.02662.pdf)
+Our main paper to discuss (Along with relevant resources and citations expanded) for this blog post would be [Grounding Large Language Models in Interactive Environments with Online Reinforcement Learning](https://arxiv.org/pdf/2302.02662.pdf). 
+
+The discussion starts with how LLMs that were trained on massive text datasets were able to capture aspects of *physical rules of the real world*, *color* and *affordances between bodies and objects* on a very generic scale **but** but LLMs suffer from lack of grounding which prevent them from using functioning well, specifically in interactive environments. A classic example could be, asking ChatGPT to play chess. Here is a HILARIOUS [video](https://www.youtube.com/watch?v=rSCNW1OCk_M) that I just couldn't stop laughing at. If we hypothetically assume that there is an abstract state (of the chess board) that ChatGPT assumes to be making moves for, is not the exact state we assume the board to be in. This lead to ChatGPT suggesting very random moves that were mostly illegal.\
+
+The authors blame this nature of the LLM on the training process (token by token), lack of ability to intervene in environment (the absense of dynamic grounding as we saw from previous paper) and lack in abilities to learn based on data colllected from interacting with the environment.
+
 
 #### Language-Conditioned Environments
 
@@ -69,18 +82,35 @@ More Details for the BabyAI-Text can be obtained here [Appendix A](https://arxiv
 BabyAI-Text obtains textual descriptions of each observation.
 Observation Space: List of template descriptions of the following format.
 
+NOTE: They first compare DRRN and Symbolic-PPO with roughly similar number of parameters that symbolic observations from BabyAI encode biases that ease learning compared to text descriptions. Hard to accept CLAIM. [Appendix B.1 Page Number 19](https://arxiv.org/pdf/2302.02662.pdf)
 
+#### LLMs as policies
+This paper uses LLMs as policies for textual interactive environments.\
+Prompt to the LLM is (task description) + (textual description of current state) + (set of possible actions).  [Table 2 Page 26 for examples]
 
+We expect the prompt to return a probability distribution over possible actions. There are three ways to execute this.
+Option 0: Generate a string and make an ad-hoc mapping that maps this string to possible actions. (This is a bit unclear to me yet)
+Option 1: Add actions heads (an MLP with # of output nodes = # of possible actions)
+Option 2: Let actions be represented by strings which are essentially tokens in order. Calculate probabilities for actions from token-wise probabilities ([Section 3.2](https://arxiv.org/pdf/2302.02662.pdf)). After obtaining probabilities of possible strings (actions), normalise them. This method has a drawback though. We need a forward pass for each of the actions. But this brings advantages such as 1) no need for a new ad-hoc mapping 2) leverage language modeling head's prior and 3) robust to any action space.
 
+For training these policies, PPO can be adapted. Here is a good resource that explains [PPO self-contained](https://fse.studenttheses.ub.rug.nl/25709/1/mAI_2021_BickD.pdf) & [Entropy Regularization in RL](https://towardsdatascience.com/entropy-regularization-in-reinforcement-learning-a6fa6d7598df). To give a quick introduction to PPO, we start with Q values and V state values. Add notes here later, for meeting, open notability.
 
-For baselines, the first basic one is [DRRN](https://arxiv.org/pdf/1606.03667.pdf) - Deep Reinforcement Relevance Network (Add an image here). Explanation for the above is provided here.
+The paper also has introduced an implementation of Lamorel for parallel LLM deployment?
 
+#### Experiments
 
-#### Training:
-They mainly use PPO for training the main model. Here is a good resource that explains [PPO self-contained](https://fse.studenttheses.ub.rug.nl/25709/1/mAI_2021_BickD.pdf) & [Entropy Regularization in RL](https://towardsdatascience.com/entropy-regularization-in-reinforcement-learning-a6fa6d7598df)
+They call their model GFLAN-T5 (G for grounded :)). They use Flan-T5 780M for their policy LLM, because of the open-source access and close link between training corpus and language-conditioned interactive environment. \
+They compare their model with three baselines. 
 
+The first one is the [symbolic PPO](https://arxiv.org/abs/1707.06347) 
+the next one is [DRRN](https://arxiv.org/pdf/1606.03667.pdf) - Deep Reinforcement Relevance Network (Add an image here). Explanation for the above is provided here.
+The final one is NPAE-FLAN-T5 (NonPretrained with Actionheads and Embeddingspretrained). This essentially initializes pre-trained weights for embedding module and the decoder with random weights. For further in-depth study, they also define more agents (Discuss Appendix 2)
 
+With these different agents, they explore **Q1. Sample Efficiency**, **Q2. Generalization to new objects**, **Q3. Generalization to new tasks**, **Q4. Impact of online interventions**.
 
+###### Q1. Sample Efficiency
+To understand how efficient the samples are, we can look at the learning curve over episodes. Agents were trained on 1.5 million steps on randomly sampled tasks and 8 distractors. [Section 4.1 Figure 2].\
+The next step, to understand how number of actions affect the learning, they vary action space (restricted - 3 actions, canonical 3 + 3 and augmented - 3 + 6) and distractors. [Page 8 Figure 4]
 
 
 
