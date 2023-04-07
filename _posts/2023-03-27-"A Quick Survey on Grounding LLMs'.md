@@ -112,6 +112,18 @@ With these different agents, they explore **Q1. Sample Efficiency**, **Q2. Gener
 To understand how efficient the samples are, we can look at the learning curve over episodes. Agents were trained on 1.5 million steps on randomly sampled tasks and 8 distractors. [Section 4.1 Figure 2].\
 The next step, to understand how number of actions affect the learning, they vary action space (restricted - 3 actions, canonical 3 + 3 and augmented - 3 + 6) and distractors. [Page 8 Figure 4]
 
+###### Q2. Generalization to new objects
+Two experiments are conducted for this. **Experiment1:** An environment with nouns that are not in training vocabulary (like a tree). **Experiment2:** An environment with invented objects.\
+It can be see that GFlan-T5 is not affected in Experiment 1. IT supports that GFlan-T5 has functionally grounded the symbols that describe the geometry of the environment and the instructions. (Symbols like 'in front' and 'steps')
+
+###### Q3. Generalization to new tasks
+To verify if agent ahs generalized over the symbols it has grounded during finetuning, we extend experiments with new unseen tasks. [Section 4.3]
+This is done by 1) Making new compositions of learned tasks 2)  Using synonyms for actions 3) Exploring new language
+
+## [Paper 3](https://grounded-decoding.github.io):
+The paper opens with 'language-conditioned robotic policies' like the one we saw from the previous paper, that learn from interaction data acn obtain some necessary grounding but are limited by the lack of high-level semantic understanding. \
+
+"If we want to make use of semantic knowlege in a language model while still situating it in an embodied setting, we must construct an action sequence that is both likely according to the language model and also realizable according to grounded models of the environment." 
 
 
 
