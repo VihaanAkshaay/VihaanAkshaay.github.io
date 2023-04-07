@@ -8,28 +8,6 @@ summary: This post is to put together current research on Grounding LLMs
 thumbnail: robot-coding.png
 ---
 
-# Resources Links:
-
-Below is the link to multiple resources in LLM + Robotics:<br/>
-[Awesome-LLM-Robotics](https://github.com/GT-RIPL/Awesome-LLM-Robotics)<br/><br/>
-
-Below is a quick summary of some relevant papers from the above link.<br/>
-
-## Is this a survey paper? Have to check:
-[Grounding ‘Grounding’ in NLP](https://aclanthology.org/2021.findings-acl.375.pdf)
-
-## Some Research Papers (Related to Grounding):
-[Grounding Large Language Models in Interactive Environments with Online Reinforcement Learning](https://arxiv.org/pdf/2302.02662.pdf)
-[Grounded Decoding: Guiding Text Generation with Grounded Models for Robot Control](https://grounded-decoding.github.io)
-
-## Robotics Related
-[Inner Monologue: Embodied Reasoning through Planning with Language Models](https://arxiv.org/pdf/2207.05608.pdf)
-[Language Models as Zero-Shot Planners: Extracting Actionable Knowledge for Embodied Agents](https://arxiv.org/pdf/2201.07207.pdf)
-
-## Class of Language-Conditioned Models
-[Language-Conditioned Imitation Learning](https://arxiv.org/pdf/2010.12083.pdf)
-[Language-Conditioned Reinforcement Learning to Solve Misunderstandings with Action Corrections](https://arxiv.org/pdf/2211.10168.pdf)
-[Natural Language-conditioned Reinforcement Learning with Inside-out Task Language Development and Translation](https://arxiv.org/pdf/2302.09368.pdf)
 
 
 # What is Grounding????? Psychology behind it!!
@@ -71,7 +49,7 @@ d) Personalized consensus:
  
 
 #### Grounding 'Grounding'
-This section 
+This section covers grounding adapted to 'NLP'
 
 
 ## Paper Discussion
@@ -100,3 +78,41 @@ For baselines, the first basic one is [DRRN](https://arxiv.org/pdf/1606.03667.pd
 
 #### Training:
 They mainly use PPO for training the main model. Here is a good resource that explains [PPO self-contained](https://fse.studenttheses.ub.rug.nl/25709/1/mAI_2021_BickD.pdf) & [Entropy Regularization in RL](https://towardsdatascience.com/entropy-regularization-in-reinforcement-learning-a6fa6d7598df)
+
+
+
+
+
+
+
+# Resources Links:
+CoRL Deadline (May 15 - June 8)  https://www.corl2023.org
+
+Below is the link to multiple resources in LLM + Robotics:<br/>
+[Awesome-LLM-Robotics](https://github.com/GT-RIPL/Awesome-LLM-Robotics)<br/><br/>
+
+Below is a quick summary of some relevant papers from the above link.<br/>
+
+## Is this a survey paper? Have to check:
+[Grounding ‘Grounding’ in NLP](https://aclanthology.org/2021.findings-acl.375.pdf)
+
+## Some Research Papers (Related to Grounding):
+[Grounding Large Language Models in Interactive Environments with Online Reinforcement Learning](https://arxiv.org/pdf/2302.02662.pdf)
+[Grounded Decoding: Guiding Text Generation with Grounded Models for Robot Control](https://grounded-decoding.github.io)
+
+## Robotics Related
+[Inner Monologue: Embodied Reasoning through Planning with Language Models](https://arxiv.org/pdf/2207.05608.pdf)
+[Language Models as Zero-Shot Planners: Extracting Actionable Knowledge for Embodied Agents](https://arxiv.org/pdf/2201.07207.pdf)
+[Say Can](https://say-can.github.io)
+
+## Class of Language-Conditioned Models
+[CLIPort](https://arxiv.org/pdf/2109.12098.pdf)
+[Language-Conditioned Imitation Learning](https://arxiv.org/pdf/2010.12083.pdf)
+[Language-Conditioned Reinforcement Learning to Solve Misunderstandings with Action Corrections](https://arxiv.org/pdf/2211.10168.pdf)
+[Natural Language-conditioned Reinforcement Learning with Inside-out Task Language Development and Translation](https://arxiv.org/pdf/2302.09368.pdf)
+
+## Human Feedback Related (Dynamic Grounding)
+[Verbally Soliciting Human Feedback in Continuous Human-Robot Collaboration: Efects of the Framing and Timing of Reminders](https://dl.acm.org/doi/pdf/10.1145/3568162.3576980)
+
+### Extending this to new ideas:
+HRL and LLM, read more about [this paper](https://arxiv.org/abs/2303.16563).
