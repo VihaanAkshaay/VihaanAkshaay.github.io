@@ -79,6 +79,11 @@ author_project_details:
                 project_description:  With the first step of identifying key points from ample raw video data for unsupervised behavior recognition using option discovery, this project proposes using open-source three-dimensional synthetic animated mouse models to improve existing pose and estimation models.
                 project_url: https://vihaanakshaay.github.io/assets/reports/Cascaded_Deep_Monocular_3D_Pose_Estimation_with_Evolutionary_Synthetic_Training_Data.pdf
                 visibility: true
+              - project_thumbnail: EarthAI.png
+                project_title: AI for Earth - Landslide Detection
+                project_description:  Developing a deep learning model for landslide prediction using Multi-band Satellite Imagery, benchmarking against Mask RCNN and YOLO models for effective instance segmentation across diverse regions.
+                project_url: https://github.com/VihaanAkshaay/AIEarth
+                visibility: true
               - project_thumbnail: EUNet.png
                 project_title: Edge-Attention U-Net for Shoreline Detection
                 project_description:  Developed a U-Net with Edge-based Attention mechanism for Binary Semantic Segmentation, enhancing shoreline detection accuracy on the Satellite-2 Water Edge Dataset compared to standard U-Net and Attention U-Net models.
