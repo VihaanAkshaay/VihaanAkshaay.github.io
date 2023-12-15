@@ -69,6 +69,25 @@ author_education_details:
                 visibility: true
 
 author_project_details:
+              - project_thumbnail: SRE.png
+                project_title: Bi-Directional Goal-Conditioning for State Space Search Problems
+                project_description: Developed the ‘SRE-DQN’ (Scrambler-Resolver-Explorer) framework, leveraging bi-directional task generation through ‘Foresight Relabelling’ and goal-conditioned DQN.
+                project_url: https://neurips.cc/virtual/2023/78637
+                visibility: true
+              - project_thumbnail: HRL_Mouse.png
+                project_title: Cascaded Deep Monocular 3D Pose Estimation with Evolutionary Synthetic Training Data
+                project_description:  With the first step of identifying key points from ample raw video data for unsupervised behavior recognition using option discovery, this project proposes using open-source three-dimensional synthetic animated mouse models to improve existing pose and estimation models.
+                project_url: https://vihaanakshaay.github.io/assets/reports/Cascaded_Deep_Monocular_3D_Pose_Estimation_with_Evolutionary_Synthetic_Training_Data.pdf
+                visibility: true
+              - project_thumbnail: EUNet.png
+                project_title: Edge-Attention U-Net for Shoreline Detection
+                project_description:  Developed a U-Net with Edge-based Attention mechanism for Binary Semantic Segmentation, enhancing shoreline detection accuracy on the Satellite-2 Water Edge Dataset compared to standard U-Net and Attention U-Net models.
+                project_url: https://vihaanakshaay.github.io/assets/reports/EdgeAttentionUNet.pdf
+              - project_thumbnail: graph_ml.png
+                project_title: Interactive Traffic Classification using Semi-Supervised Graphical Approaches
+                project_description:  By leveraging graphical machine learning models (such as GCN and DGCNN), using psuedo-labeling and exploiting the dependencies between bursts, we achieved near State-of-the-Art performance in interactive network traffic classification with smaller models (0.2% the size of a BERT-based model).
+                project_url: https://vihaanakshaay.github.io/assets/reports/Graph_ML_Report.pdf
+                visibility: true
               - project_thumbnail: ARTEMIS.png
                 project_title: ARTEMIS - Railroad Crack Detection Robot
                 project_description: ARTEMIS is an autonomous robot that traverses inbetween the railway tracks, detects faults and sends the coordinates for further action to be taken.
