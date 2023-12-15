@@ -184,6 +184,28 @@ layout: default
       </div>
       {% endif %} {% endfor %}
     </div>
+    {% endif %} {% if site.show_author_teaching_details == true %}
+    <div class="card">
+      <h1 class="card-title">Teaching</h1>
+      <br />
+      {% for detail in site.author_teaching_details %} {% if detail.visibility
+      == true %}
+      <div class="row">
+        <div class="col-md-2">
+          <img
+            src="{{site.url}}{{site.baseurl}}/assets/img/{{ detail.college_logo}}"
+            class="company-logo"
+          />
+        </div>
+        <div class="col-md-6">
+          <h4 class="experience-title">{{detail.course_name}}</h4>
+          <h6 class="experience-info">{{detail.college_name}}</h6>
+          <p class="experience-desc">{{detail.advisor_name}}</p>
+          <p><a href="{{detail.college_url}}">{{ detail.course_url}}</a></p>
+        </div>
+      </div>
+      {% endif %} {% endfor %}
+    </div>
     {% endif %}
   </div>
 </div>
