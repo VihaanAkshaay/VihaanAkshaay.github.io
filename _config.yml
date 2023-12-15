@@ -68,6 +68,26 @@ author_education_details:
                 description: Programmed various robots in simulation and worked with Jetson TX2 hardware implementing various robotic algorithms(Localization, Mapping, SLAM, Path Planning and Navigation, 3D perception, Deep Learning, Manipulator Kinematics) and tools(ROS using python & C++, RViz, Gazebo and more).
                 visibility: true
 
+author_teaching_details:
+              - college_logo: ucsb.jpeg
+                college_name: University of California, Santa Barbara
+                course_name: CMPSC 130A - Data Structures & Algorithms
+                advisor_name: Prof. Eric Vigoda
+                course_url: https://sites.cs.ucsb.edu/~vigoda/130A-Fall23/
+                visibility: true
+              - college_logo: ucsb.jpeg
+                college_name: University of California, Santa Barbara
+                course_name: CMPSC 165A - Artificial Intelligence [Spring 2023]
+                advisor_name: Prof. Yu-Xiang Wang
+                course_url: https://sites.cs.ucsb.edu/~yuxiangw/classes/AICourse-2023Spring/
+                visibility: true
+              - college_logo: iitmlogo.png
+                college_name: Indian Institute of Technology, Madras
+                course_name: CS6700 - Reinforcement Learning [Spring 2022]
+                advisor_name: Prof. Balaraman Ravindran
+                course_url: http://www.cse.iitm.ac.in/~ravi/
+                visibility: true
+
 author_project_details:
               - project_thumbnail: SRE.png
                 project_title: Bi-Directional Goal-Conditioning for State Space Search Problems
