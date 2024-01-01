@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ' A handbook with concepts and terms for Language conditioned RL '
+title: '[Incomplete] A handbook with concepts and terms for Language conditioned RL '
 author: Vihaan Akshaay
 date: '2023-06-24 18:00:23 +0530'
 category: Notes
