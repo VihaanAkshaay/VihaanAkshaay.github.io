@@ -8,34 +8,41 @@ summary: Wanted to write a little this year
 thumbnail: landslide.png
 ---
 
-In hindsight, I wish I had not booked the aisle seat. Maybe because there is nothing but the to see 
+In hindsight, I wish I had not booked the aisle seat. 
+
+Maybe there is nothing but the the cold reception to see? Well there is one's self.
 
 Hakodate - Calm (Warm, write about the lady I met at the park) and lonely 
 Tokyo - Busy (Is that what makes it cold? Is it the people or the place?)
 Transition is similar to how I'm going from a trip to a year filled with repsponsibilities, dreams, passions and people.
 
- Days have been long, despite being short. The world screams out for more, but I don't feel the same. The sun sets on its own, we'll be okay.  That's how we know. That's all we know.
+ Days have been long, despite being short. The world screams out for more, but I don't feel the same.   That's how we know. That's all we know.
 
-## Retrospect
+## Introspect
 
 ### Comfort
 
 Self.
-One's self is nothing but their past. Being one's self is comfort. Momentary comfort, just that.
+
+Is one's self what decides what to do and say, given a circumstance? If so, is one's self is nothing but their past? Being one's self is comfort. Momentary comfort, that is.
 
 Familiarity. 
 Personal preferences I wish to find some comfort in the panic.
 
 ## Introspect
 
-I can't see the finish line. The fear finds a way.
+For every withered leaf that gets stepped on, there's another budding on the same branch. For every withered leaf I step on, I wonder, Is constantly wishing for my 'self' to be replaced with another without this thought might 
+
+The sun sets on its own, we'll be okay. We're brought 
+The end is not unveiled yet and what can't be perceived is mostly feared. Panic might find a way, it has, so far. I'm grateful to find comfort in the panic.
 
 ### Gratitude
 
+Having 'choice' is a blessing. Giving self, the power to choose, is a previledge. Acknowledging this insight is a present.  
+
 ### Delusion
 
-Constantly clocking a million minutes on music
- is nothing but a constant attempt to 
+Consistently clocking a million minutes on happy music every year doesn't make one a happy person. Turns out, one's self might not be a block that you push, rather a spring, that expects to be pulled harder every other time you let it go.
 
 ## Extrospect
 
@@ -43,11 +50,11 @@ Constantly clocking a million minutes on music
 
 ## Allospect
 
-
+People are more alike than one might think.
 
 ### Expression
 
-Tear up this town.
+Tear up this town. The teary eye knows the clarity lost is clarity gained.
 
 ## Prospect
 
