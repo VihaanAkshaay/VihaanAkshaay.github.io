@@ -79,21 +79,6 @@ layout: default
 
     <div class="row ">
       <div class="col-lg-4 offset-md-1">
-            <div class="card">
-          <h1>Skills</h1>
-    
-          {%- include author_skills.html -%}
-        </div>
-    
-        {% if site.wakatime_username %}
-        <div class="card">
-          <h1>Coding Activity</h1>
-    
-          {%- include coding_activity.html -%}
-        </div>
-        {% endif %}
-      </div>
-      <div class="col-lg-7">
         {% if site.author_bio %}
         <div class="card">
           <h1 class="card-title">About</h1>
@@ -121,7 +106,23 @@ layout: default
           </div>
           {% endif %} {% endfor %}
         </div>
-        {% endif %} {% if site.show_author_teaching_details == true %}
+        {% endif %}
+        <div class="card">
+          <h1>Skills</h1>
+    
+          {%- include author_skills.html -%}
+        </div>
+    
+        {% if site.wakatime_username %}
+        <div class="card">
+          <h1>Coding Activity</h1>
+    
+          {%- include coding_activity.html -%}
+        </div>
+        {% endif %}
+      </div>
+      <div class="col-lg-7">
+        {% if site.show_author_teaching_details == true %}
         <div class="card">
           <h1 class="card-title">Teaching</h1>
           <br />
