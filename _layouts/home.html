@@ -75,8 +75,6 @@ layout: default
     <h6><i class="fas fa-envelope"></i> {{ site.author_email }}</h6>
   {% endif %}
 </div>
-
-
     <div class="row ">
       <div class="col-lg-4 offset-md-1">
         {% if site.author_bio %}
@@ -87,26 +85,39 @@ layout: default
         {% endif %} {% if site.show_author_education_details == true %}
         <div class="card">
           <h1 class="card-title">Education</h1>
-          <br />
-          {% for detail in site.author_education_details %} {% if detail.visibility
-          == true %}
-          <div class="row">
-            <div class="col-md-2">
+          <br/>
+          {% for detail in site.author_education_details %} 
+          {% if detail.visibility == true %}
+          <div class="row" style="display: flex; flex-wrap: wrap; align-items: flex-start; margin-bottom: 20px;">
+            
+            <!-- College Logo -->
+            <div class="col-md-2 text-center" style="flex: 0 0 auto; max-width: 125px; margin-right: 15px;">
               <img
-                src="{{site.url}}{{site.baseurl}}/assets/img/{{ detail.college_logo}}"
+                src="{{site.url}}{{site.baseurl}}/assets/img/{{ detail.college_logo }}"
                 class="company-logo"
+                style="width: 100%; height: auto; object-fit: contain;"
               />
             </div>
-            <div class="col-md-6">
-              <h4 class="experience-title">{{detail.college_degree }}</h4>
-              <h6 class="experience-info">{{detail.college_name}}</h6>
-              <p class="experience-desc">{{detail.description}}</p>
-              <p><a href="{{detail.college_url}}">{{ detail.college_url}}</a></p>
+          
+            <!-- College Details -->
+            <div class="col-md-10" style="flex: 1 1 0; min-width: 250px; text-align: left;">
+              <!-- Degree Name with Link -->
+              <h4 class="experience-title" style="margin-bottom: 5px; font-size: 16px; line-height: 1.4;">
+                <a href="{{ detail.college_url }}" style="color: orange; text-decoration: none;">
+                  {{ detail.college_name}}
+                </a>
+              </h4>
+              <h6 class="experience-info" style="margin-bottom: 8px; font-size: 16px; color: gray; line-height: 1.4;">
+                {{ detail.college_degree  }}
+              </h6>
+              <p class="experience-desc" style="margin-bottom: 5px; font-size: 14px; color: #666; line-height: 1.4;">
+                {{ detail.description }}
+              </p>
             </div>
+            
           </div>
-          {% endif %} {% endfor %}
-        </div>
-        {% endif %}
+          {% endif %}{% endfor %}       
+        </div> {% endif %}
         <div class="card">
           <h1>Skills</h1>
     
@@ -146,29 +157,35 @@ layout: default
         </div>
         {% endif %} {% if site.show_author_project_details == true %}
         <div id="author_projects" class="card">
-          <h1 class="card-title">Research Experiences</h1>
+          <h1 class="card-title">Research</h1>
           <br />
           {% for project in site.author_project_details %} {% if project.visibility
           == true %}
-          <div class="row" id="project-card">
-            <div class="col-md-6">
+          <div class="row" id="project-card" style="margin-bottom: 20px; align-items: center;">
+            <!-- Project Thumbnail -->
+            <div class="col-md-4">
               <img
                 src="{{site.url}}{{site.baseurl}}/assets/img/{{project.project_thumbnail}}"
                 class="project-img"
+                style="width: 150px; height: auto; object-fit: contain; border-radius: 5px;"
               />
             </div>
-            <div class="col-md-4 center">
-              <h4 class="experience-title">{{ project.project_title }}</h4>
-              <h6 class="experience-info">{{ project.project_info}}</h6>
-              <p class="experience-desc">{{ project.project_description }}</p>
-              <p>
-                <a class="project-link" href="{{project.project_url}}"
-                  >{{ project.project_url}}</a
-                >
+          
+            <!-- Project Details -->
+            <div class="col-md-8">
+              <a class="project-link" href="{{ project.project_url }}" style="color: orange; text-decoration: none; font-size: 20px; font-weight: bold; display: block; margin-bottom: 10px;">
+                {{ project.project_title }}
+              </a>
+              <p class="project-authors" style="font-size: 16px; font-weight: normal; color: whitesmoke; margin: 5px 0;">
+                {{ project.project_members }}
+              </p>
+              <p class="project-venue" style="font-size: 14px; font-weight: 300; color: gray; margin-top: 5px;">
+                {{ project.project_venue }}
               </p>
             </div>
           </div>
-          <br />
+          
+          <br/>
           {% endif %} {% endfor %}
         </div>
         {% endif %} {% if site.show_author_work_experiences == true %}

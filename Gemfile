@@ -3,7 +3,6 @@ ruby "2.7.7"
 source "https://rubygems.org"
 
 gem 'jekyll'
-#gem 'jekyll'
 gem 'bundler'
 gem 'kramdown'
 gem 'rack-jekyll'

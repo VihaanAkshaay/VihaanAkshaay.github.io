@@ -544,16 +544,19 @@ header {
 #author_projects {
     .project-img {
         width: 300px;
-        height: 200px;
+        height: 150px;
     }
-    #project-card{
-        margin-top:30px;
+    #project-card {
+        margin-top: 30px;
     }
-    .project-link{
-        color: var(--link-color);
+    .project-link {
+        color: orange;  /* Change to orange color */
+        cursor: pointer; /* Ensure it looks clickable */
+    }
+    .project-link:hover {
+        color: darkorange; /* Optional: Slightly darker color on hover */
     }
 }
-
 
 .company-logo {
     width: 100px;
@@ -563,6 +566,11 @@ header {
 .author-profile-img {
     width: 150px;
     height: 150px;
+}
+
+#author_projects .project-link h5 {
+    color: orange !important; /* Explicitly set orange */
+    margin: 0; /* Reset margin if needed */
 }
 
 .blog-post {
