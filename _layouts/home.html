@@ -153,42 +153,77 @@ layout: default
               <p><a href="{{detail.college_url}}">{{ detail.course_url}}</a></p>
             </div>
           </div>
-          {% endif %} {% endfor %}
-        </div>
-        {% endif %} {% if site.show_author_project_details == true %}
+          {% endif %} {% endfor %} 
+        </div>{% endif %}
+        {% if site.show_author_project_details == true %}
         <div id="author_projects" class="card">
-          <h1 class="card-title">Research</h1>
+          <!-- Research Projects Section -->
+          <h1 class="card-title">Research Projects</h1>
           <br />
-          {% for project in site.author_project_details %} {% if project.visibility
-          == true %}
-          <div class="row" id="project-card" style="margin-bottom: 20px; align-items: center;">
-            <!-- Project Thumbnail -->
-            <div class="col-md-4">
-              <img
-                src="{{site.url}}{{site.baseurl}}/assets/img/{{project.project_thumbnail}}"
-                class="project-img"
-                style="width: 150px; height: auto; object-fit: contain; border-radius: 5px;"
-              />
-            </div>
-          
-            <!-- Project Details -->
-            <div class="col-md-8">
-              <a class="project-link" href="{{ project.project_url }}" style="color: orange; text-decoration: none; font-size: 20px; font-weight: bold; display: block; margin-bottom: 10px;">
-                {{ project.project_title }}
-              </a>
-              <p class="project-authors" style="font-size: 16px; font-weight: normal; color: whitesmoke; margin: 5px 0;">
-                {{ project.project_members }}
-              </p>
-              <p class="project-venue" style="font-size: 14px; font-weight: 300; color: gray; margin-top: 5px;">
-                {{ project.project_venue }}
-              </p>
-            </div>
-          </div>
-          
-          <br/>
-          {% endif %} {% endfor %}
+          {% for project in site.author_project_details %} 
+            {% if project.visibility == true and project.research == true %}
+              <div class="row" id="project-card" style="margin-bottom: 20px; align-items: center;">
+                <!-- Project Thumbnail -->
+                <div class="col-md-4">
+                  <img
+                    src="{{site.url}}{{site.baseurl}}/assets/img/{{project.project_thumbnail}}"
+                    class="project-img"
+                    style="width: 150px; height: auto; object-fit: contain; border-radius: 5px;"
+                  />
+                </div>
+              
+                <!-- Project (Research) Details -->
+                <div class="col-md-8">
+                  <a class="project-link" href="{{ project.project_url }}" style="color: orange; text-decoration: none; font-size: 20px; font-weight: bold; display: block; margin-bottom: 10px;">
+                    {{ project.project_title }}
+                  </a>
+                  <p class="project-authors" style="font-size: 16px; font-weight: normal; color: whitesmoke; margin: 5px 0;">
+                    {{ project.project_members }}
+                  </p>
+                  <p class="project-venue" style="font-size: 14px; font-weight: 300; color: gray; margin-top: 5px;">
+                    {{ project.project_venue }}
+                  </p>
+                </div>
+              </div>
+              <br />
+            {% endif %}
+          {% endfor %}
         </div>
-        {% endif %} {% if site.show_author_work_experiences == true %}
+        
+        <div id="author_projects_non_research" class="card">
+          <!-- Non-Research Projects Section -->
+          <h1 class="card-title">Robotics Projects</h1>
+          <br />
+          {% for project in site.author_project_details %} 
+            {% if project.visibility == true and project.research == false %}
+              <div class="row" id="project-card" style="margin-bottom: 20px; align-items: center;">
+                <!-- Project Thumbnail -->
+                <div class="col-md-4">
+                  <img
+                    src="{{site.url}}{{site.baseurl}}/assets/img/{{project.project_thumbnail}}"
+                    class="project-img"
+                    style="width: 150px; height: auto; object-fit: contain; border-radius: 5px;"
+                  />
+                </div>
+              
+                <!-- Project Details -->
+                <div class="col-md-8">
+                  <!-- Project Title -->
+                  <h3 style="color: orange; font-size: 20px; font-weight: bold; margin-bottom: 10px;">
+                    {{ project.project_title }}
+                  </h3>
+                  <!-- Project Description -->
+                  <p style="font-size: 14px; font-weight: 300; color: gray; margin-top: 5px;">
+                    {{ project.project_description }}
+                  </p>
+                </div>                
+              </div>
+              <br />
+            {% endif %}
+          {% endfor %}
+        </div>
+        {% endif %}
+         {% if site.show_author_work_experiences == true %}
         <div class="card">
           <h1 class="card-title">Work Experience</h1>
           <br />
