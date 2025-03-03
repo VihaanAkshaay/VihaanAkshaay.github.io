@@ -121,7 +121,7 @@ author_project_details:
                 project_description:  Developing a deep learning model for landslide prediction using Multi-band Satellite Imagery, benchmarking against Mask RCNN and YOLO models for effective instance segmentation across diverse regions.
                 project_url: https://github.com/VihaanAkshaay/AIEarth
                 project_members: <strong>Vihaan Akshaay Rajendiran*</strong>, Amanda Roeliza Guilalas Hunt*, Gen K. Li, Lei Li
-                project_venue: Under Review
+                project_venue: ICLR 2025, Machine Learning for Remote Sensing Workshop
                 visibility: true
                 research: true
               - project_thumbnail: HRL_Mouse.png
