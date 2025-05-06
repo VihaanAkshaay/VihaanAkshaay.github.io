@@ -252,6 +252,103 @@ layout: default
       </div>
     </div>
 
+
+    <!-- VihaanGPT Chat Button + Widget -->
+    <style>
+      #chat-widget {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 9999;
+        width: 320px;
+        max-height: 400px;
+        background: white;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+        display: none;
+        flex-direction: column;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      }
+
+      #chat-header {
+        background: orange;
+        color: white;
+        padding: 10px;
+        font-weight: bold;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+      }
+
+      #chat-body {
+        padding: 10px;
+        overflow-y: auto;
+        flex: 1;
+        font-size: 14px;
+      }
+
+      #chat-input {
+        border-top: 1px solid #ccc;
+        padding: 10px;
+      }
+
+      #chat-input textarea {
+        width: 100%;
+        resize: none;
+        height: 50px;
+        padding: 5px;
+        font-size: 14px;
+      }
+
+      #chat-toggle {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: orange;
+        color: white;
+        border: none;
+        padding: 12px 16px;
+        font-weight: bold;
+        border-radius: 50px;
+        cursor: pointer;
+        z-index: 9998;
+      }
+    </style>
+
+    <div id="chat-widget">
+      <div id="chat-header">Ask VihaanGPT</div>
+      <div id="chat-body"></div>
+      <div id="chat-input">
+        <textarea id="chat-question" placeholder="Ask me anything..."></textarea>
+        <button onclick="askVihaan()">Send</button>
+      </div>
+    </div>
+
+    <button id="chat-toggle" onclick="toggleChat()">💬 Chat</button>
+
+    <script>
+      function toggleChat() {
+        const chat = document.getElementById("chat-widget");
+        chat.style.display = (chat.style.display === "flex") ? "none" : "flex";
+      }
+
+      async function askVihaan() {
+        const question = document.getElementById("chat-question").value;
+        const body = document.getElementById("chat-body");
+        body.innerHTML += `<div><strong>You:</strong> ${question}</div>`;
+        document.getElementById("chat-question").value = "";
+
+        const res = await fetch("https://your-backend-url.com/query", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ query: question })
+        });
+
+        const data = await res.json();
+        body.innerHTML += `<div><strong>VihaanGPT:</strong> ${data.answer}</div>`;
+        body.scrollTop = body.scrollHeight;
+      }
+    </script>
+
     <!--
     <div class="col-lg-8 offset-md-2">
       <section id="recent-articles">
