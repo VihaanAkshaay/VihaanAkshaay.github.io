@@ -16,25 +16,16 @@ urls:
 
 author_logo: profile.png
 author: Vihaan Akshaay
-author_bio: <p>
-I am an <strong>Applied AI Researcher</strong> with first-author publications at top-tier venues, including <strong>ICLR 2025</strong> and <strong>NeurIPS 2023</strong>, in <strong>Computer Vision</strong> and <strong>Deep Reinforcement Learning</strong>. My work spans five research internships across premier institutions, including <a href="https://www.jax.org/">The Jackson Laboratory (JAX)</a>, <a href="https://www.iitm.ac.in/">IIT Madras</a>, <a href="https://www.gatech.edu/">Georgia Tech</a>, <a href="https://www.ntu.edu.sg/">NTU Singapore</a>, and a joint role at <a href="https://www.ucsb.edu/">UC Santa Barbara</a> and <a href="https://www.cmu.edu/">Carnegie Mellon University</a>.
-</p>
+author_bio: >
+  <p>I am an <strong>Applied AI Researcher</strong> with first-author publications at top-tier venues, including <strong>ICLR 2025</strong> and <strong>NeurIPS 2023</strong>, in <strong>Computer Vision</strong> and <strong>Deep Reinforcement Learning</strong>. My work spans five research internships across premier institutions, including <a href="https://www.jax.org/">The Jackson Laboratory (JAX)</a>, <a href="https://www.iitm.ac.in/">IIT Madras</a>, <a href="https://www.gatech.edu/">Georgia Tech</a>, <a href="https://www.ntu.edu.sg/">NTU Singapore</a>, and a joint role at <a href="https://www.ucsb.edu/">UC Santa Barbara</a> and <a href="https://www.cmu.edu/">Carnegie Mellon University</a>.</p>
 
-<p>
-My research bridges disciplines—developing AI systems for <strong>biological behavior analysis</strong>, <strong>robotics</strong>, <strong>mechanical systems</strong>, and <strong>Earth sciences</strong>. At <strong>IIT Madras</strong>, I led the <a href="https://cfi.iitm.ac.in/clubs/ibot-club">iBot Robotics Club</a> and co-developed the <a href="https://ipm.icsr.in/ipm/robotics-automation/idf-no-1643-artemis-railroad-crack-detection-robot-copy">ARTEMIS Railroad Crack Detection Robot</a>, winning the <a href="https://www.jamesdysonaward.org/2017/project/railroad-crack-detection-bot/">International James Dyson Award</a>. My Master’s thesis on <strong>unsupervised behavior recognition in mice</strong> was advised by <a href="http://www.cse.iitm.ac.in/~ravi/">B. Ravindran</a> and <a href="https://www.jax.org/research-and-faculty/faculty/vivek-kumar">Dr. Vivek Kumar</a> at JAX.
-</p>
+  <p>My research bridges disciplines—developing AI systems for <strong>biological behavior analysis</strong>, <strong>robotics</strong>, <strong>mechanical systems</strong>, and <strong>Earth sciences</strong>. At <strong>IIT Madras</strong>, I led the <a href="https://cfi.iitm.ac.in/clubs/ibot-club">iBot Robotics Club</a> and co-developed the <a href="https://ipm.icsr.in/ipm/robotics-automation/idf-no-1643-artemis-railroad-crack-detection-robot-copy">ARTEMIS Railroad Crack Detection Robot</a>, winning the <a href="https://www.jamesdysonaward.org/2017/project/railroad-crack-detection-bot/">International James Dyson Award</a>. My Master’s thesis on <strong>unsupervised behavior recognition in mice</strong> was advised by <a href="http://www.cse.iitm.ac.in/~ravi/">B. Ravindran</a> and <a href="https://www.jax.org/research-and-faculty/faculty/vivek-kumar">Dr. Vivek Kumar</a> at JAX.</p>
 
-<p>
-I recently completed my <strong>M.S. in Computer Science</strong> at <strong>UC Santa Barbara</strong>, working under <a href="https://www.cs.cmu.edu/~leili/">Lei Li</a> and <a href="https://sites.cs.ucsb.edu/~yuxiangw/">Yu-Xiang Wang</a>. Inspired by human problem-solving strategies, I proposed a <strong>bi-directional framework for goal conditioning</strong> in state-space search. I also introduced an <strong>edge-attention-based U-Net</strong> for environmental segmentation and helped curate a <strong>large-scale landslide detection dataset</strong> with <a href="https://esurf-carbon.geol.ucsb.edu/people/gen-li">Gen Li</a> using 40 years of Landsat imagery.
-</p>
+  <p>I recently completed my <strong>M.S. in Computer Science</strong> at <strong>UC Santa Barbara</strong>, working under <a href="https://www.cs.cmu.edu/~leili/">Lei Li</a> and <a href="https://sites.cs.ucsb.edu/~yuxiangw/">Yu-Xiang Wang</a>. Inspired by human problem-solving strategies, I proposed a <strong>bi-directional framework for goal conditioning</strong> in state-space search. I also introduced an <strong>edge-attention-based U-Net</strong> for environmental segmentation and helped curate a <strong>large-scale landslide detection dataset</strong> with <a href="https://esurf-carbon.geol.ucsb.edu/people/gen-li">Gen Li</a> using 40 years of Landsat imagery.</p>
 
-<p>
-Other projects include analyzing the <strong>stability of Deep Q-Networks</strong> with <a href="https://sites.google.com/site/sivatheja/">Siva Theja Maguluri</a> at Georgia Tech and designing <strong>kernelized deep randomized models (eDRVFLs)</strong> with <a href="https://www3.ntu.edu.sg/home/epnsugan/">P. N. Suganthan</a> at NTU Singapore.
-</p>
+  <p>Other projects include analyzing the <strong>stability of Deep Q-Networks</strong> with <a href="https://sites.google.com/site/sivatheja/">Siva Theja Maguluri</a> at Georgia Tech and designing <strong>kernelized deep randomized models (eDRVFLs)</strong> with <a href="https://www3.ntu.edu.sg/home/epnsugan/">P. N. Suganthan</a> at NTU Singapore.</p>
 
-<p>
-I specialize in translating cutting-edge AI theory into <strong>practical, high-impact solutions</strong> across domains. I am currently seeking opportunities in <strong>applied AI research</strong> or <strong>machine learning engineering</strong> roles, particularly those focused on impactful, real-world applications.
-</p>
+  <p>I specialize in translating cutting-edge AI theory into <strong>practical, high-impact solutions</strong> across domains. I am currently seeking opportunities in <strong>applied AI research</strong> or <strong>machine learning engineering</strong> roles, particularly those focused on impactful, real-world applications.</p>
 
 author_email: "vihaanakshaay@gmail.com"
 author_location: Santa Barbara, California
