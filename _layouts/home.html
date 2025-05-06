@@ -337,7 +337,7 @@ layout: default
         body.innerHTML += `<div><strong>You:</strong> ${question}</div>`;
         document.getElementById("chat-question").value = "";
 
-        const res = await fetch("https://your-backend-url.com/query", {
+        const res = await fetch("https://vihaan-chatbot-api.onrender.com/query", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ query: question })
