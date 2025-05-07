@@ -256,62 +256,80 @@ layout: default
     <!-- Chat Button + Widget -->
     <style>
       #chat-widget {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        z-index: 9999;
-        width: 320px;
-        max-height: 400px;
-        background: white;
-        border-radius: 10px;
-        border: 1px solid #ccc;
-        display: none;
-        flex-direction: column;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-      }
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  height: 500px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  font-family: sans-serif;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
 
-      #chat-header {
-        background: orange;
-        color: white;
-        padding: 10px;
-        font-weight: bold;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-      }
+#chat-header {
+  background: #0078d4;
+  color: white;
+  padding: 0.75rem;
+  font-weight: bold;
+}
 
-      #chat-body {
-        padding: 10px;
-        overflow-y: auto;
-        flex: 1;
-        font-size: 14px;
-      }
+#chat-body {
+  flex: 1;
+  padding: 0.75rem;
+  background: #f5f5f5;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
 
-      #chat-input {
-        border-top: 1px solid #ccc;
-        padding: 10px;
-      }
+.message {
+  max-width: 80%;
+  padding: 0.5rem 0.75rem;
+  border-radius: 12px;
+  line-height: 1.4;
+}
 
-      #chat-input textarea {
-        width: 100%;
-        resize: none;
-        height: 50px;
-        padding: 5px;
-        font-size: 14px;
-      }
+.user-message {
+  background: #dcf8c6;
+  align-self: flex-end;
+}
 
-      #chat-toggle {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        background: orange;
-        color: white;
-        border: none;
-        padding: 12px 16px;
-        font-weight: bold;
-        border-radius: 50px;
-        cursor: pointer;
-        z-index: 9998;
-      }
+.assistant-message {
+  background: #ffffff;
+  align-self: flex-start;
+}
+
+#chat-input {
+  display: flex;
+  padding: 0.5rem;
+  border-top: 1px solid #ddd;
+  background: #fafafa;
+}
+
+#chat-input textarea {
+  flex: 1;
+  resize: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 0.5rem;
+  font-size: 0.9rem;
+  margin-right: 0.5rem;
+}
+
+#chat-input button {
+  background: #0078d4;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0 1rem;
+  cursor: pointer;
+}
+#chat-input button:hover {
+  background: #005a9e;
+}
+
     </style>
 
     <div id="chat-widget">
@@ -343,21 +361,37 @@ layout: default
           }
 
       async function askVihaan() {
-        const question = document.getElementById("chat-question").value;
-        const body = document.getElementById("chat-body");
-        body.innerHTML += `<div><strong>You:</strong> ${question}</div>`;
-        document.getElementById("chat-question").value = "";
+        const question = document.getElementById("chat-question").value.trim();
+        if (!question) return;
 
+        const body = document.getElementById("chat-body");
+
+        // create & append user bubble
+        const userBubble = document.createElement("div");
+        userBubble.className = "message user-message";
+        userBubble.textContent = question;
+        body.appendChild(userBubble);
+
+        document.getElementById("chat-question").value = "";
+        body.scrollTop = body.scrollHeight;
+
+        // fetch assistant reply
         const res = await fetch("https://vihaan-chatbot-api.onrender.com/query", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ query: question })
         });
-
         const data = await res.json();
-        body.innerHTML += `<div><strong>Assistant: </strong> ${data.answer}</div>`;
+
+        // create & append assistant bubble
+        const botBubble = document.createElement("div");
+        botBubble.className = "message assistant-message";
+        botBubble.textContent = data.answer;
+        body.appendChild(botBubble);
+
         body.scrollTop = body.scrollHeight;
       }
+
     </script>
 
     <!--
