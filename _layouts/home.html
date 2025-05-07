@@ -253,7 +253,7 @@ layout: default
     </div>
 
 
-    <!-- VihaanGPT Chat Button + Widget -->
+    <!-- ChatBot Button + Widget -->
     <style>
       #chat-widget {
         position: fixed;
@@ -394,7 +394,12 @@ layout: default
         if (!question) return;
 
         const body = document.getElementById("chat-body");
-        body.innerHTML += `<div><strong>You:</strong> ${question}</div>`;
+        
+        // Create and append user message
+        const userMessage = document.createElement("div");
+        userMessage.innerHTML = `<strong>You:</strong> ${question}`;
+        body.appendChild(userMessage);
+        
         document.getElementById("chat-question").value = "";
 
         // Add typing indicator
@@ -414,11 +419,19 @@ layout: default
           const data = await res.json();
           // Remove typing indicator
           body.removeChild(typingIndicator);
-          body.innerHTML += `<div><strong> AI Assistant:</strong> ${data.answer}</div>`;
+          
+          // Create and append AI response
+          const aiMessage = document.createElement("div");
+          aiMessage.innerHTML = `<strong>AI Assistant:</strong> ${data.answer}`;
+          body.appendChild(aiMessage);
         } catch (error) {
           // Remove typing indicator
           body.removeChild(typingIndicator);
-          body.innerHTML += `<div><strong> AI Assistant:</strong> Sorry, I encountered an error. Please try again.</div>`;
+          
+          // Create and append error message
+          const errorMessage = document.createElement("div");
+          errorMessage.innerHTML = `<strong>AI Assistant:</strong> Sorry, I encountered an error. Please try again.`;
+          body.appendChild(errorMessage);
         }
         
         body.scrollTop = body.scrollHeight;
