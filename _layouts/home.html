@@ -328,7 +328,11 @@ layout: default
     <script>
       function toggleChat() {
         const chat = document.getElementById("chat-widget");
-        chat.style.display = (chat.style.display === "flex") ? "none" : "flex";
+        if (chat.style.display === "none" || chat.style.display === "") {
+          chat.style.display = "flex";
+        } else {
+          chat.style.display = "none";
+        }
       }
 
       async function askVihaan() {
@@ -337,10 +341,6 @@ layout: default
         body.innerHTML += `<div><strong>You:</strong> ${question}</div>`;
         document.getElementById("chat-question").value = "";
 
-        // Add loading indicator
-        body.innerHTML += `<div><strong>Assistant: </strong> <span id="loading-dots">...</span></div>`;
-        body.scrollTop = body.scrollHeight;
-
         const res = await fetch("https://vihaan-chatbot-api.onrender.com/query", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -348,8 +348,7 @@ layout: default
         });
 
         const data = await res.json();
-        // Replace loading indicator with response
-        body.innerHTML = body.innerHTML.replace('<span id="loading-dots">...</span>', data.answer);
+        body.innerHTML += `<div><strong>Assistant: </strong> ${data.answer}</div>`;
         body.scrollTop = body.scrollHeight;
       }
     </script>
