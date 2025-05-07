@@ -311,6 +311,52 @@ layout: default
         border-radius: 50px;
         cursor: pointer;
         z-index: 9998;
+        animation: popIn 0.5s ease-out;
+      }
+
+      @keyframes popIn {
+        0% {
+          transform: scale(0);
+          opacity: 0;
+        }
+        50% {
+          transform: scale(1.2);
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      .typing-indicator {
+        display: inline-block;
+        padding: 8px 12px;
+        background: #f0f0f0;
+        border-radius: 15px;
+        margin: 5px 0;
+      }
+
+      .typing-indicator span {
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        background: #666;
+        border-radius: 50%;
+        margin: 0 2px;
+        animation: typing 1s infinite;
+      }
+
+      .typing-indicator span:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+
+      .typing-indicator span:nth-child(3) {
+        animation-delay: 0.4s;
+      }
+
+      @keyframes typing {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-5px); }
       }
     </style>
 
@@ -331,20 +377,46 @@ layout: default
         chat.style.display = (chat.style.display === "flex") ? "none" : "flex";
       }
 
+      // Add event listener for Enter key
+      document.getElementById("chat-question").addEventListener("keypress", function(e) {
+        if (e.key === "Enter" && !e.shiftKey) {
+          e.preventDefault();
+          askVihaan();
+        }
+      });
+
       async function askVihaan() {
-        const question = document.getElementById("chat-question").value;
+        const question = document.getElementById("chat-question").value.trim();
+        if (!question) return;
+
         const body = document.getElementById("chat-body");
         body.innerHTML += `<div><strong>You:</strong> ${question}</div>`;
         document.getElementById("chat-question").value = "";
 
-        const res = await fetch("https://vihaan-chatbot-api.onrender.com/query", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ query: question })
-        });
+        // Add typing indicator
+        const typingIndicator = document.createElement("div");
+        typingIndicator.className = "typing-indicator";
+        typingIndicator.innerHTML = '<span></span><span></span><span></span>';
+        body.appendChild(typingIndicator);
+        body.scrollTop = body.scrollHeight;
 
-        const data = await res.json();
-        body.innerHTML += `<div><strong>VihaanGPT:</strong> ${data.answer}</div>`;
+        try {
+          const res = await fetch("https://vihaan-chatbot-api.onrender.com/query", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ query: question })
+          });
+
+          const data = await res.json();
+          // Remove typing indicator
+          body.removeChild(typingIndicator);
+          body.innerHTML += `<div><strong>VihaanGPT:</strong> ${data.answer}</div>`;
+        } catch (error) {
+          // Remove typing indicator
+          body.removeChild(typingIndicator);
+          body.innerHTML += `<div><strong>VihaanGPT:</strong> Sorry, I encountered an error. Please try again.</div>`;
+        }
+        
         body.scrollTop = body.scrollHeight;
       }
     </script>
