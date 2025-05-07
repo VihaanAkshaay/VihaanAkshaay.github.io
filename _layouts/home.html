@@ -368,29 +368,35 @@ layout: default
       <div id="chat-header">Vihaan's Personal AI Assistant</div>
       <div id="chat-body"></div>
       <div id="chat-input">
-        <textarea id="chat-question" placeholder="Shoot your questions..."></textarea>
+        <textarea id="chat-question" placeholder="Shoot your questions..." onkeydown="handleKeyPress(event)"></textarea>
         <button onclick="askVihaan()">Send</button>
       </div>
     </div>
 
-    <button id="chat-toggle" onclick="toggleChat()">💬 Curious about Vihaan???</button>
+    <button id="chat-toggle" onclick="toggleChat()">💬 Curious about Vihaan? Ask me anything!</button>
 
     <script>
       function toggleChat() {
         const chat = document.getElementById("chat-widget");
-        chat.style.display = (chat.style.display === "flex") ? "none" : "flex";
+        if (chat.style.display === "flex") {
+          chat.style.display = "none";
+        } else {
+          chat.style.display = "flex";
+          // Focus the input when chat is opened
+          document.getElementById("chat-question").focus();
+        }
       }
 
-      // Add event listener for Enter key
-      document.getElementById("chat-question").addEventListener("keypress", function(e) {
-        if (e.key === "Enter" && !e.shiftKey) {
-          e.preventDefault();
+      function handleKeyPress(event) {
+        if (event.key === "Enter" && !event.shiftKey) {
+          event.preventDefault();
           askVihaan();
         }
-      });
+      }
 
       async function askVihaan() {
-        const question = document.getElementById("chat-question").value.trim();
+        const questionInput = document.getElementById("chat-question");
+        const question = questionInput.value.trim();
         if (!question) return;
 
         const body = document.getElementById("chat-body");
@@ -400,7 +406,8 @@ layout: default
         userMessage.innerHTML = `<strong>You:</strong> ${question}`;
         body.appendChild(userMessage);
         
-        document.getElementById("chat-question").value = "";
+        // Clear input immediately
+        questionInput.value = "";
 
         // Add typing indicator
         const typingIndicator = document.createElement("div");
