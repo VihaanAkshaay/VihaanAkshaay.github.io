@@ -301,6 +301,18 @@ layout: default
     padding: 5px;
     font-size: 14px;
   }
+  #chat-close {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 18px;
+    line-height: 1;
+    cursor: pointer;
+  }
   /* BUBBLES */
   .message {
     max-width: 75%;
@@ -318,6 +330,18 @@ layout: default
     align-self: flex-start;
   }
   /* TOGGLE */
+  /* 1) Pop-in on load */
+  @keyframes popIn {
+    0%   { transform: scale(0); opacity: 0; }
+    60%  { transform: scale(1.2); opacity: 1; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+
+  /* 2) Subtle infinite bounce after pop */
+  @keyframes floatUp {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-6px); }
+  }
   #chat-toggle {
     position: fixed;
     bottom: 20px;
@@ -330,13 +354,19 @@ layout: default
     border-radius: 50px;
     cursor: pointer;
     z-index: 9998;
+    animation: 
+    popIn    0.6s ease-out forwards, 
+    floatUp  2.5s ease-in-out 1s infinite;
   }
 </style>
 
 <button id="chat-toggle">💬 Curious about Vihaan? Shoot your questions!</button>
 
 <div id="chat-widget">
-  <div id="chat-header">Vihaan's Personal AI Assistant</div>
+  <div id="chat-header">
+    Vihaan's Personal AI Assistant
+    <button id="chat-close">×</button>
+  </div>
   <div id="chat-body"></div>
   <div id="chat-input">
     <textarea id="chat-question" placeholder="Ask me anything..."></textarea>
@@ -349,6 +379,7 @@ layout: default
     const chatWidget = document.getElementById('chat-widget');
     const chatToggle = document.getElementById('chat-toggle');
     const chatBody   = document.getElementById('chat-body');
+    const chatClose  = document.getElementById('chat-close');
     const textarea   = document.getElementById('chat-question');
     const sendBtn    = document.getElementById('send-btn');
 
@@ -395,6 +426,10 @@ layout: default
         e.preventDefault();
         askVihaan();
       }
+    });
+
+    chatClose.addEventListener('click', () => {
+      chatWidget.style.display = 'none';
     });
   });
 </script>
