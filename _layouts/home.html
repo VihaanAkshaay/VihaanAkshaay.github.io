@@ -328,25 +328,18 @@ layout: default
     <script>
       function toggleChat() {
         const chat = document.getElementById("chat-widget");
-        const toggle = document.getElementById("chat-toggle");
-
-            const isHidden = !chat.style.display || chat.style.display === "none";
-            if (isHidden) {
-              // show chat, hide bubble
-              chat.style.display = "flex";
-              toggle.style.display = "none";
-            } else {
-              // hide chat, show bubble
-              chat.style.display = "none";
-              toggle.style.display = "block";
-            }
-          }
+        chat.style.display = (chat.style.display === "flex") ? "none" : "flex";
+      }
 
       async function askVihaan() {
         const question = document.getElementById("chat-question").value;
         const body = document.getElementById("chat-body");
         body.innerHTML += `<div><strong>You:</strong> ${question}</div>`;
         document.getElementById("chat-question").value = "";
+
+        // Add loading indicator
+        body.innerHTML += `<div><strong>Assistant: </strong> <span id="loading-dots">...</span></div>`;
+        body.scrollTop = body.scrollHeight;
 
         const res = await fetch("https://vihaan-chatbot-api.onrender.com/query", {
           method: "POST",
@@ -355,7 +348,8 @@ layout: default
         });
 
         const data = await res.json();
-        body.innerHTML += `<div><strong>Assistant: </strong> ${data.answer}</div>`;
+        // Replace loading indicator with response
+        body.innerHTML = body.innerHTML.replace('<span id="loading-dots">...</span>', data.answer);
         body.scrollTop = body.scrollHeight;
       }
     </script>
