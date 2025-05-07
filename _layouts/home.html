@@ -351,64 +351,27 @@ layout: default
     <button id="chat-toggle" onclick="toggleChat()">💬 Curious about Vihaan? Shoot your questions!</button>
 
     <script>
-      // grab elements
-      const chatWidget = document.getElementById("chat-widget");
-      const chatToggle = document.getElementById("chat-toggle");
-      const chatBody   = document.getElementById("chat-body");
-      const textarea   = document.getElementById("chat-question");
-      const sendBtn    = document.getElementById("send-btn");
-    
-      // toggle open/close & autofocus
       function toggleChat() {
-        const isOpen = chatWidget.style.display === "flex";
-        chatWidget.style.display = isOpen ? "none" : "flex";
-        if (!isOpen) textarea.focus();
+        const chat = document.getElementById("chat-widget");
+        chat.style.display = (chat.style.display === "flex") ? "none" : "flex";
       }
-      chatToggle.addEventListener("click", toggleChat);
-    
-      // send logic (innerHTML style)
+
       async function askVihaan() {
-        const q = textarea.value.trim();
-        if (!q) return;  // no empty sends
-    
-        // user bubble
-        chatBody.innerHTML += 
-          `<div class="message user-message"><strong>You:</strong> ${q}</div>`;
-        textarea.value = "";
-        chatBody.scrollTop = chatBody.scrollHeight;
-    
-        // placeholder bot bubble
-        chatBody.innerHTML += 
-          `<div class="message assistant-message">…</div>`;
-        chatBody.scrollTop = chatBody.scrollHeight;
-    
-        try {
-          const res = await fetch("https://vihaan-chatbot-api.onrender.com/query", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ query: q })
-          });
-          const { answer } = await res.json();
-          // replace the last “…” with actual text
-          const bubbles = chatBody.querySelectorAll(".assistant-message");
-          bubbles[bubbles.length - 1].textContent = answer;
-          chatBody.scrollTop = chatBody.scrollHeight;
-        } catch {
-          const bubbles = chatBody.querySelectorAll(".assistant-message");
-          bubbles[bubbles.length - 1].textContent = 
-            "⚠️ Oops, something went wrong.";
-          chatBody.scrollTop = chatBody.scrollHeight;
-        }
+        const question = document.getElementById("chat-question").value;
+        const body = document.getElementById("chat-body");
+        body.innerHTML += `<div><strong>You:</strong> ${question}</div>`;
+        document.getElementById("chat-question").value = "";
+
+        const res = await fetch("https://vihaan-chatbot-api.onrender.com/query", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ query: question })
+        });
+
+        const data = await res.json();
+        body.innerHTML += `<div><strong>Assistant: </strong> ${data.answer}</div>`;
+        body.scrollTop = body.scrollHeight;
       }
-    
-      // hook up click + Enter key
-      sendBtn.addEventListener("click", askVihaan);
-      textarea.addEventListener("keydown", e => {
-        if (e.key === "Enter" && !e.shiftKey) {
-          e.preventDefault();
-          askVihaan();
-        }
-      });
     </script>
 
     <!--
