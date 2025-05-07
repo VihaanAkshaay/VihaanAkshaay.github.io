@@ -328,12 +328,19 @@ layout: default
     <script>
       function toggleChat() {
         const chat = document.getElementById("chat-widget");
-        if (chat.style.display === "none" || chat.style.display === "") {
-          chat.style.display = "flex";
-        } else {
-          chat.style.display = "none";
-        }
-      }
+        const toggle = document.getElementById("chat-toggle");
+
+            const isHidden = !chat.style.display || chat.style.display === "none";
+            if (isHidden) {
+              // show chat, hide bubble
+              chat.style.display = "flex";
+              toggle.style.display = "none";
+            } else {
+              // hide chat, show bubble
+              chat.style.display = "none";
+              toggle.style.display = "block";
+            }
+          }
 
       async function askVihaan() {
         const question = document.getElementById("chat-question").value;
