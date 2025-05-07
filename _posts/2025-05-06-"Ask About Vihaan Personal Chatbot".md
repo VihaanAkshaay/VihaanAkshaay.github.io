@@ -25,8 +25,8 @@ itemize
 - data: put all pdfs in docs/ 
 - accounts:
     - openai {for embeddings and model}: get OPENAI_API_KEY 
-    - pinecone {for vector database of chunks}: get PINECONE_API_KEY; create a new index with the name "vihaan-chatbot", and choose 'text-embedding-3-small' as the vector model (dimension should be 1536)
-    - fork this repo: https://github.com/VihaanAkshaay/Vihaan-chatbot-api
+    - pinecone {for vector database of chunks}: get PINECONE_API_KEY; create a new index with the name "<your-name>-chatbot", and choose 'text-embedding-3-small' as the vector model (dimension should be 1536)
+    - fork this repo: https://github.com/VihaanAkshaay/Vihaan-chatbot-api and change index name in embed_pdfs.py to "<your-name>-chatbot"
     - move docs/ to the forked repo
     - create render account (to host the app) and open a new web service (choose this forked repo)
 
@@ -83,7 +83,7 @@ What this does:
      -H "Content-Type: application/json" \
      -d '{"query": "What can you do?"}'
     ```
-    
+
     - feel free to make a small chatbot on your own website and use this app as the backend!!! 
 
 
