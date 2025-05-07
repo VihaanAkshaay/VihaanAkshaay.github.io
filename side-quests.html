@@ -1,0 +1,98 @@
+---
+layout: default
+title: Side Quests
+subtitle: Am I dreamin', is there more like us?
+---
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 offset-md-2">
+            <h1 class="category-title">{{ page.title }}</h1>
+            <p class="category-subtitle">{{ page.subtitle }}</p>
+            
+            <div class="category-description">
+                <p>Welcome to the experimental corner of my blog! Here you'll find explorations into 
+                new technologies, interesting side projects, and discoveries that might not fit 
+                into the main development workflow. These are the adventures that make coding 
+                exciting and keep the learning journey fresh.</p>
+            </div>
+
+            <div class="posts-list">
+                {% assign tagged_posts = site.posts | where_exp: "post", "post.tags contains 'side-quest'" %}
+                {% for post in tagged_posts %}
+                <div class="post-card">
+                    <h2><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2>
+                    <p class="post-date">{{ post.date | date: "%B %-d, %Y" }}</p>
+                    <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 50 }}</p>
+                    <a href="{{ post.url | prepend: site.baseurl }}" class="read-more">Read More →</a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.category-title {
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.category-subtitle {
+    font-size: 1.2rem;
+    color: #666;
+    font-style: italic;
+    margin-bottom: 2rem;
+}
+
+.category-description {
+    margin-bottom: 3rem;
+    padding: 1.5rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+}
+
+.post-card {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #eee;
+}
+
+.post-card:last-child {
+    border-bottom: none;
+}
+
+.post-card h2 {
+    margin-bottom: 0.5rem;
+}
+
+.post-card h2 a {
+    color: #333;
+    text-decoration: none;
+}
+
+.post-card h2 a:hover {
+    color: #007bff;
+}
+
+.post-date {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.post-excerpt {
+    color: #444;
+    margin-bottom: 1rem;
+}
+
+.read-more {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.read-more:hover {
+    text-decoration: underline;
+}
+</style> 

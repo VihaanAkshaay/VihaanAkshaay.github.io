@@ -2,6 +2,7 @@
 layout: post
 title: ' [Incomplete] "Current ML techniques in Landslide Detection & Prediction" '
 author: Vihaan Akshaay
+tags: ['concept-note']
 date: '2023-06-14 18:00:23 +0530'
 category: Notes
 summary: Just a short summary of the current methods for Landslide detection and prediction models

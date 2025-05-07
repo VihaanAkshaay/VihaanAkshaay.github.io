@@ -2,6 +2,7 @@
 layout: post
 title: '[Personal] A window from the aisle seat '
 author: Vihaan Akshaay
+tags: ['personal']
 date: '2024-01-01 10:35:23 +0900'
 category: Personal
 summary: Wanted to write a little this year

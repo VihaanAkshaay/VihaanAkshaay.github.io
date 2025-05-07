@@ -1,6 +1,7 @@
 ---
 layout: post
-title: ' [Incomplete] "A Survey on Grounding LLMs" '
+title: '[Incomplete] "A Survey on Grounding LLMs" '
+tags: ['concept-note']
 author: Vihaan Akshaay
 date: '2023-03-27 18:00:23 +0530'
 category: Advanced

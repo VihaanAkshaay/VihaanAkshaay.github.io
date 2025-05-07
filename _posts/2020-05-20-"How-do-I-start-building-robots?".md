@@ -1,6 +1,7 @@
 ---
 layout: post
 title: ' "How do I start building robots?" '
+tags: ['dev-log']
 author: Vihaan Akshaay
 date: '2020-08-03 18:00:23 +0530'
 category: Beginner

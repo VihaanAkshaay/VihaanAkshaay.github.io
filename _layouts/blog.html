@@ -2,7 +2,102 @@
 layout: default
 ---
 
- <div class="row" id="blog-posts-container">
+<div class="row" id="blog-categories-container">
+    <div class="col-lg-10 offset-md-1">
+        <div class="row">
+            <!-- Dev Logs -->
+            <div class="col-md-6 mb-4">
+                <a href="{{ site.baseurl }}/dev-logs" class="category-link">
+                    <div class="card category-card">
+                        <div class="card-body">
+                            <h3 class="card-title">Dev Logs</h3>
+                            <p class="card-subtitle">If I can build it, you can too!</p>
+                            <p class="card-description">Step-by-step guides and lessons from my coding adventures.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Concept Notes -->
+            <div class="col-md-6 mb-4">
+                <a href="{{ site.baseurl }}/concept-notes" class="category-link">
+                    <div class="card category-card">
+                        <div class="card-body">
+                            <h3 class="card-title">Concept Notes</h3>
+                            <p class="card-subtitle">I see how it works now!</p>
+                            <p class="card-description">Deep dives into programming concepts and technical explanations.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Side Quests -->
+            <div class="col-md-6 mb-4">
+                <a href="{{ site.baseurl }}/side-quests" class="category-link">
+                    <div class="card category-card">
+                        <div class="card-body">
+                            <h3 class="card-title">Side Quests</h3>
+                            <p class="card-subtitle">Am I dreamin', is there more like us?</p>
+                            <p class="card-description">Explorations into new technologies and interesting side projects.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Personal -->
+            <div class="col-md-6 mb-4">
+                <a href="{{ site.baseurl }}/personal" class="category-link">
+                    <div class="card category-card">
+                        <div class="card-body">
+                            <h3 class="card-title">Personal</h3>
+                            <p class="card-subtitle">It's gotta get easier somehow</p>
+                            <p class="card-description">Reflections on the developer journey and personal growth.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.category-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.category-card {
+    height: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card-title {
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.card-subtitle {
+    color: #666;
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+.card-description {
+    color: #444;
+    font-size: 0.9rem;
+    margin-bottom: 0;
+}
+</style>
+
+<div class="row" id="blog-posts-container">
       <div class="col-lg-8 offset-md-1">
               <ul>
                   <div class="row">

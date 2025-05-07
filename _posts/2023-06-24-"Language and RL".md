@@ -2,6 +2,7 @@
 layout: post
 title: '[Incomplete] A handbook with concepts and terms for Language conditioned RL '
 author: Vihaan Akshaay
+tags: ['concept-note']
 date: '2023-06-24 18:00:23 +0530'
 category: Notes
 summary: Using this as a notebook for writing terms and concepts new to me related to Language conditioned RL
