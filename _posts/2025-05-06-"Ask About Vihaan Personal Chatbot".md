@@ -85,6 +85,7 @@ What this does:
 
 
 
-
-
-
+### Caution.
+- This works bad, and definitely can be improved.
+Example: 
+    - query: "What is the capital of India?"
