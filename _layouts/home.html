@@ -359,8 +359,26 @@ layout: default
       async function askVihaan() {
         const question = document.getElementById("chat-question").value;
         const body = document.getElementById("chat-body");
-        body.innerHTML += `<div><strong>You:</strong> ${question}</div>`;
+
+        // — USER BUBBLE —
+        const userBubble = document.createElement("div");
+        userBubble.classList.add("message", "user-message");
+        userBubble.textContent = question;
+        body.appendChild(userBubble);
+
         document.getElementById("chat-question").value = "";
+        body.scrollTop = body.scrollHeight;
+
+        //body.innerHTML += `<div><strong>You:</strong> ${question}</div>`;
+        //document.getElementById("chat-question").value = "";
+
+
+        // — ASSISTANT BUBBLE —
+        const loading = document.createElement("div");
+        loading.classList.add("message", "assistant-message");
+        loading.textContent = "...";
+        body.appendChild(loading);
+        body.scrollTop = body.scrollHeight;
 
         const res = await fetch("https://vihaan-chatbot-api.onrender.com/query", {
           method: "POST",
@@ -369,7 +387,10 @@ layout: default
         });
 
         const data = await res.json();
-        body.innerHTML += `<div><strong>Assistant: </strong> ${data.answer}</div>`;
+        //body.innerHTML += `<div><strong>Assistant: </strong> ${data.answer}</div>`;
+        //body.scrollTop = body.scrollHeight;
+
+        loading.textContent = data.answer;
         body.scrollTop = body.scrollHeight;
       }
     </script>
