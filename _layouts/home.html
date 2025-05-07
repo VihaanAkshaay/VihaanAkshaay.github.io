@@ -284,6 +284,9 @@ layout: default
         overflow-y: auto;
         flex: 1;
         font-size: 14px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
       }
 
       #chat-input {
@@ -311,6 +314,28 @@ layout: default
         border-radius: 50px;
         cursor: pointer;
         z-index: 9998;
+      }
+
+      /* common bubble styling */
+      .message {
+        padding: 8px 12px;
+        border-radius: 16px;
+        max-width: 75%;
+        word-wrap: break-word;
+        font-size: 14px;
+        line-height: 1.4;
+      }
+
+      /* user on the right, greenish */
+      .user-message {
+        background: #dcf8c6;
+        align-self: flex-end;
+      }
+
+      /* assistant on the left, light gray */
+      .assistant-message {
+        background: #f1f0f0;
+        align-self: flex-start;
       }
     </style>
 
