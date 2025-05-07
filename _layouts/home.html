@@ -328,14 +328,7 @@ layout: default
     <script>
       function toggleChat() {
         const chat = document.getElementById("chat-widget");
-        const toggle = document.getElementById("chat-toggle");
-        if (chat.style.display === "flex") {
-          chat.style.display = "none";
-          toggle.style.display = "block";
-        } else {
-          chat.style.display = "flex";
-          toggle.style.display = "none";
-        }
+        chat.style.display = (chat.style.display === "flex") ? "none" : "flex";
       }
 
       async function askVihaan() {
@@ -355,7 +348,7 @@ layout: default
         });
 
         const data = await res.json();
-        // Remove loading indicator and add response
+        // Replace loading indicator with response
         body.innerHTML = body.innerHTML.replace('<span id="loading-dots">...</span>', data.answer);
         body.scrollTop = body.scrollHeight;
       }
