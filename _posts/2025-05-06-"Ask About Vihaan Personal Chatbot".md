@@ -22,19 +22,20 @@ So let's dive in. I promise you, the slow step is going to be collecting the pdf
 
 # Setups!
 itemize
-- data: put all pdfs in data/ 
+- data: put all pdfs in docs/ 
 - accounts:
     - openai {for embeddings and model}: get OPENAI_API_KEY 
-    - pinecone {for vector database of chunks}: get PINECONE_API_KEY
-    - create render account (to host the app)
+    - pinecone {for vector database of chunks}: get PINECONE_API_KEY; create a new index with the name "vihaan-chatbot", and choose 'text-embedding-3-small' as the vector model (dimension should be 1536)
     - fork this repo: https://github.com/VihaanAkshaay/Vihaan-chatbot-api
+    - move docs/ to the forked repo
+    - create render account (to host the app) and open a new web service (choose this forked repo)
 
 # Steps!
 0.1) create python env from requirements.txt
 
 ```
-python -m venv venv
-source venv/bin/activate
+python -m venv venv \
+source venv/bin/activate \
 pip install -r requirements.txt
 ```
 
@@ -48,7 +49,7 @@ export PINECONE_API_KEY="your_pinecone_api_key"
 1) run embed_pdfs.py
 
 ```
-python embed_pdfs.py --pdf_dir ./data/ --output_dir ./data/embeddings/
+python embed_pdfs.py
 ```
 
 What this does: 
@@ -58,13 +59,13 @@ What this does:
 2) Create a render session
     - go to https://dashboard.render.com/
     - create a new web service
-    - connect to github repo (potentiallyyour forked of https://github.com/VihaanAkshaay/Vihaan-chatbot-api)
+    - connect to github repo (potentially your fork of https://github.com/VihaanAkshaay/Vihaan-chatbot-api)
     - set env variables (add your OPENAI_API_KEY and PINECONE_API_KEY to the environment variables on the render dashboard)
-    - add built command: pip install -r requirements.txt
-    - add start command: uvicorn app:app --host=0.0.0.0 --port=8000
+    - add built command: ```pip install -r requirements.txt```
+    - add start command : ```uvicorn app:app --host=0.0.0.0 --port=8000```
     - add instance type: free
     - add region: us-east-1
-    - create session
+    - create session/deploy
 
 What this does:
     - this acts as a host for the app, whenever you add a query, it will be sent to app here which is hosted on render.
@@ -76,11 +77,13 @@ What this does:
 3) Test it out!
     - get the url of the app from the render dashboard
     - use the url to test the app (replace the example-api.onrender.com with your own url)
+
     ```
     curl -X POST https://example-api.onrender.com/query \
      -H "Content-Type: application/json" \
      -d '{"query": "What can you do?"}'
     ```
+    
     - feel free to make a small chatbot on your own website and use this app as the backend!!! 
 
 
