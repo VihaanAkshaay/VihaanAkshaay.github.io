@@ -5,9 +5,7 @@ layout: default
 <div class="container">
     <div class="row">
         <div class="col-lg-8 offset-md-2">
-            <div class="blog-intro">
-                <p class="intro-text">I ain't no lil' blog (the og) but I wanna write more now. I prefer one-way social media over two - the signal corrupts my brain chemistry, and lately, I'm screwed.</p>
-            </div>
+            <p class="intro-text">This is definitely no close to <a href="https://lilianweng.github.io">lil'log</a> (the goat!) but I kinda wanna write more now. You'll might find a bunch of [Incomplete] posts here, I like to keep some of them that way, nostalgia is my kryptonite.</p>
         </div>
     </div>
 </div>
@@ -71,29 +69,31 @@ layout: default
 
 <style>
 :root {
-    --orange-primary: #ff6b35;
-    --orange-light: #ff8c61;
-    --orange-dark: #e85a2c;
+    --orange-primary: #ff4500;
+    --orange-light: #ff6b35;
+    --orange-dark: #e63900;
     --text-dark: #2c1810;
     --text-light: #4a2c20;
 }
 
-.blog-intro {
-    margin: 2rem 0 3rem;
-    padding: 1.5rem;
-    background-color: #fff;
-    border-radius: 12px;
-    text-align: center;
-    border: 2px solid var(--orange-primary);
-}
-
 .intro-text {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     color: var(--text-dark);
     font-style: italic;
-    margin: 0;
+    margin: 2rem 0 3rem;
     line-height: 1.6;
+    text-align: center;
     font-weight: 500;
+}
+
+.intro-text a {
+    color: var(--orange-primary);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.intro-text a:hover {
+    text-decoration: underline;
 }
 
 .category-link {
@@ -105,10 +105,10 @@ layout: default
 .category-card {
     height: 100%;
     transition: transform 0.3s ease;
-    border: 2px solid var(--orange-primary);
+    border: 3px solid var(--orange-primary);
     border-radius: 12px;
     background-color: #fff;
-    box-shadow: 0 2px 4px rgba(255, 107, 53, 0.1);
+    box-shadow: 0 2px 4px rgba(255, 69, 0, 0.2);
 }
 
 .category-card:hover {
@@ -121,14 +121,14 @@ layout: default
 
 .card-title {
     color: var(--orange-primary);
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     margin-bottom: 0.5rem;
-    font-weight: 600;
+    font-weight: 700;
 }
 
 .card-subtitle {
     color: var(--text-light);
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-style: italic;
     margin-bottom: 0.5rem;
     font-weight: 500;
@@ -136,19 +136,15 @@ layout: default
 
 .card-description {
     color: var(--text-dark);
-    font-size: 1rem;
+    font-size: 1.1rem;
     margin-bottom: 0;
     font-weight: 500;
 }
 
 @media (max-width: 768px) {
-    .blog-intro {
-        margin: 1.5rem 0 2rem;
-        padding: 1rem;
-    }
-    
     .intro-text {
         font-size: 1.2rem;
+        margin: 1.5rem 0 2rem;
     }
     
     .card-body {
@@ -156,11 +152,11 @@ layout: default
     }
     
     .card-title {
-        font-size: 1.3rem;
+        font-size: 1.4rem;
     }
     
     .card-subtitle {
-        font-size: 1rem;
+        font-size: 1.1rem;
     }
 }
 </style>

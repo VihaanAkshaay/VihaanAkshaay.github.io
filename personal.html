@@ -7,15 +7,14 @@ subtitle: It's gotta get easier somehow
 <div class="container">
     <div class="row">
         <div class="col-lg-8 offset-md-2">
-            <h1 class="category-title">{{ page.title }}</h1>
-            <p class="category-subtitle">{{ page.subtitle }}</p>
-            
-            <div class="category-description">
-                <p>This is where I share my personal journey in tech - the ups, the downs, and everything in between. 
-                From career reflections to productivity tips, these posts capture the human side of being a developer. 
-                Because sometimes the most important lessons aren't about code, but about the person writing it.</p>
-            </div>
+            <p class="intro-text">This is where I share my personal journey in tech - the ups, the downs, and everything in between. From career reflections to productivity tips, these posts capture the human side of being a developer.</p>
+        </div>
+    </div>
+</div>
 
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 offset-md-2">
             <div class="posts-list">
                 {% assign tagged_posts = site.posts | where_exp: "post", "post.tags contains 'personal'" %}
                 {% for post in tagged_posts %}
@@ -32,29 +31,28 @@ subtitle: It's gotta get easier somehow
 </div>
 
 <style>
-.category-title {
-    margin-bottom: 0.5rem;
-    color: #333;
+:root {
+    --orange-primary: #ff4500;
+    --orange-light: #ff6b35;
+    --orange-dark: #e63900;
+    --text-dark: #2c1810;
+    --text-light: #4a2c20;
 }
 
-.category-subtitle {
-    font-size: 1.2rem;
-    color: #666;
+.intro-text {
+    font-size: 1.4rem;
+    color: var(--text-dark);
     font-style: italic;
-    margin-bottom: 2rem;
-}
-
-.category-description {
-    margin-bottom: 3rem;
-    padding: 1.5rem;
-    background-color: #f8f9fa;
-    border-radius: 8px;
+    margin: 2rem 0 3rem;
+    line-height: 1.6;
+    text-align: center;
+    font-weight: 500;
 }
 
 .post-card {
-    margin-bottom: 2rem;
-    padding-bottom: 2rem;
-    border-bottom: 1px solid #eee;
+    margin-bottom: 2.5rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 2px solid var(--orange-primary);
 }
 
 .post-card:last-child {
@@ -66,32 +64,52 @@ subtitle: It's gotta get easier somehow
 }
 
 .post-card h2 a {
-    color: #333;
+    color: var(--orange-primary);
     text-decoration: none;
+    font-weight: 700;
+    font-size: 1.8rem;
 }
 
 .post-card h2 a:hover {
-    color: #007bff;
+    text-decoration: underline;
 }
 
 .post-date {
-    color: #666;
-    font-size: 0.9rem;
+    color: var(--text-light);
+    font-size: 1.1rem;
     margin-bottom: 1rem;
 }
 
 .post-excerpt {
-    color: #444;
+    color: var(--text-dark);
+    font-size: 1.1rem;
     margin-bottom: 1rem;
+    line-height: 1.6;
 }
 
 .read-more {
-    color: #007bff;
+    color: var(--orange-primary);
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 600;
+    font-size: 1.1rem;
 }
 
 .read-more:hover {
     text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .intro-text {
+        font-size: 1.2rem;
+        margin: 1.5rem 0 2rem;
+    }
+    
+    .post-card h2 a {
+        font-size: 1.5rem;
+    }
+    
+    .post-date, .post-excerpt {
+        font-size: 1rem;
+    }
 }
 </style> 
