@@ -351,72 +351,48 @@ layout: default
     <button id="chat-toggle" onclick="toggleChat()">💬 Curious about Vihaan? Shoot your questions!</button>
 
     <script>
-      // grab your elements
-      const chatWidget = document.getElementById("chat-widget");
-      const chatToggle = document.getElementById("chat-toggle");
-      const chatBody   = document.getElementById("chat-body");
-      const textarea   = document.getElementById("chat-question");
-      const sendBtn    = document.querySelector("#chat-input button");
-    
-      // 1) toggle open/closed
       function toggleChat() {
-        chatWidget.style.display = chatWidget.style.display === "flex" ? "none" : "flex";
-        if (chatWidget.style.display === "flex") {
-          textarea.focus();
-        }
+        const chat = document.getElementById("chat-widget");
+        chat.style.display = (chat.style.display === "flex") ? "none" : "flex";
       }
-    
-      // 2) the “send” logic
+
       async function askVihaan() {
-        const question = textarea.value.trim();
-        if (!question) return;
-    
-        // user bubble
-        const userBubble = document.createElement("div");
-        userBubble.classList.add("message", "user-message");
-        userBubble.textContent = question;
-        chatBody.appendChild(userBubble);
-    
-        // reset and scroll
-        textarea.value = "";
-        chatBody.scrollTop = chatBody.scrollHeight;
-    
-        // placeholder bot bubble
-        const botBubble = document.createElement("div");
-        botBubble.classList.add("message", "assistant-message");
-        botBubble.textContent = "…";
-        chatBody.appendChild(botBubble);
-        chatBody.scrollTop = chatBody.scrollHeight;
-    
-        try {
-          const res = await fetch("https://vihaan-chatbot-api.onrender.com/query", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ query: question })
-          });
-          const { answer } = await res.json();
-          botBubble.textContent = answer;
-          chatBody.scrollTop = chatBody.scrollHeight;
-        } catch (err) {
-          console.error(err);
-          botBubble.textContent = "⚠️ Error sending message";
-        }
-      }
-    
-      // 3) wire up the events once DOM is ready
-      document.addEventListener("DOMContentLoaded", () => {
-        chatToggle.addEventListener("click", toggleChat);
-        sendBtn   .addEventListener("click", askVihaan);
-    
-        textarea.addEventListener("keydown", e => {
-          if (e.key === "Enter" && !e.shiftKey) {
-            e.preventDefault();
-            askVihaan();
-          }
+        const question = document.getElementById("chat-question").value;
+        const body = document.getElementById("chat-body");
+
+        // — USER BUBBLE —
+        //const userBubble = document.createElement("div");
+        //userBubble.classList.add("message", "user-message");
+        //userBubble.textContent = question;
+        //body.appendChild(userBubble);
+        //document.getElementById("chat-question").value = "";
+        //body.scrollTop = body.scrollHeight;
+
+        body.innerHTML += `<div><strong>You:</strong> ${question}</div>`;
+        document.getElementById("chat-question").value = "";
+
+
+        // — ASSISTANT BUBBLE —
+        //const loading = document.createElement("div");
+        //loading.classList.add("message", "assistant-message");
+        //loading.textContent = "...";
+        //body.appendChild(loading);
+        //body.scrollTop = body.scrollHeight;
+
+        const res = await fetch("https://vihaan-chatbot-api.onrender.com/query", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ query: question })
         });
-      });
+
+        const data = await res.json();
+        body.innerHTML += `<div><strong>Assistant: </strong> ${data.answer}</div>`;
+        body.scrollTop = body.scrollHeight;
+
+        //loading.textContent = data.answer;
+        //body.scrollTop = body.scrollHeight;
+      }
     </script>
-    
 
     <!--
     <div class="col-lg-8 offset-md-2">
