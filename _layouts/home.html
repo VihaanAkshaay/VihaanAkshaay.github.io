@@ -255,17 +255,42 @@ layout: default
 
     <!-- Chat Button + Widget -->
     <style>
+      /* 1) Hide chat by default and float it above content */
       #chat-widget {
-  display: flex;
-  flex-direction: column;
-  width: 350px;
-  height: 500px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  overflow: hidden;
-  font-family: sans-serif;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
+        display: none;               /* start hidden */
+        position: fixed;             
+        bottom: 80px;                /* sit just above the bubble */
+        right: 20px;                 
+        width: 350px;
+        height: 500px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        overflow: hidden;
+        font-family: sans-serif;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        background: white;
+        z-index: 1000;
+      }
+    
+      /* 2) Make the toggle “bubble” fixed in the corner */
+      #chat-toggle {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 1001;               /* above the widget */
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        border: none;
+        background: #0078d4;
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      }
 
 #chat-header {
   background: #0078d4;
@@ -344,15 +369,21 @@ layout: default
     <button id="chat-toggle" onclick="toggleChat()">💬 Curious about Vihaan? Shoot your questions!</button>
 
     <script>
-            function toggleChat() {
+      function toggleChat() {
         const chat = document.getElementById("chat-widget");
-        if (chat.style.display === "none" || chat.style.display === "") {
-          chat.style.display = "flex";
-        } else {
-          chat.style.display = "none";
-        }
-      }
+        const toggle = document.getElementById("chat-toggle");
 
+            const isHidden = !chat.style.display || chat.style.display === "none";
+            if (isHidden) {
+              // show chat, hide bubble
+              chat.style.display = "flex";
+              toggle.style.display = "none";
+            } else {
+              // hide chat, show bubble
+              chat.style.display = "none";
+              toggle.style.display = "block";
+            }
+          }
 
       async function askVihaan() {
         const question = document.getElementById("chat-question").value.trim();
