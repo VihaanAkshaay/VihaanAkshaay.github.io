@@ -89,12 +89,14 @@ What this does:
 - This works bad, and definitely can be improved.
 
 Example: 
+
+```
     You: Does Vihaan know C++?
-    Agent: I don’t have that information in my current knowledge.
+    Agent: I don\’t have that information in my current knowledge.
 
     You: Does he know C++?
     Agent: Yes, Vihaan Akshaay is proficient in C++17.
-
+```
 
 So yeah, don't expect this to impress the recruiter that's checking your portfolio to be impressed so much, that they'll be head over heels in love with you.
 But yes, once you have this pipeline setup, you can work on improving it. Good luck!
