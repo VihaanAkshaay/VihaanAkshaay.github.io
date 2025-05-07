@@ -359,7 +359,7 @@ layout: default
       async function askVihaan() {
         const question = document.getElementById("chat-question").value;
         const body = document.getElementById("chat-body");
-        body.innerHTML += <div><strong>You:</strong> ${question}</div>;
+        body.innerHTML += `<div><strong>You:</strong> ${question}</div>`;
         document.getElementById("chat-question").value = "";
 
         const res = await fetch("https://vihaan-chatbot-api.onrender.com/query", {
@@ -369,7 +369,7 @@ layout: default
         });
 
         const data = await res.json();
-        body.innerHTML += <div><strong>Assistant: </strong> ${data.answer}</div>;
+        body.innerHTML += `<div><strong>Assistant: </strong> ${data.answer}</div>`;
         body.scrollTop = body.scrollHeight;
       }
     </script>
