@@ -355,39 +355,27 @@ layout: default
         const chat = document.getElementById("chat-widget");
         chat.style.display = (chat.style.display === "flex") ? "none" : "flex";
       }
+
       async function askVihaan() {
         const textarea = document.getElementById("chat-question");
         const question = textarea.value.trim();
-        if (!question) return;
 
         const body = document.getElementById("chat-body");
 
-        // — USER BUBBLE —
+        // - User Bubble
         const userBubble = document.createElement("div");
-        userBubble.classList.add("message", "user-message");
-        userBubble.textContent = question;
-        body.appendChild(userBubble);
+        userBubble.classList.add
+        body.innerHTML += `<div><strong>You:</strong> ${question}</div>`;
+        document.getElementById("chat-question").value = "";
 
-        textarea.value = "";
-        body.scrollTop = body.scrollHeight;
-
-        // — ASSISTANT BUBBLE PLACEHOLDER —
-        const loading = document.createElement("div");
-        loading.classList.add("message", "assistant-message");
-        loading.textContent = "…";
-        body.appendChild(loading);
-        body.scrollTop = body.scrollHeight;
-
-        // fetch reply
         const res = await fetch("https://vihaan-chatbot-api.onrender.com/query", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ query: question })
         });
-        const data = await res.json();
 
-        // replace “…” with real answer
-        loading.textContent = data.answer;
+        const data = await res.json();
+        body.innerHTML += `<div><strong>Assistant: </strong> ${data.answer}</div>`;
         body.scrollTop = body.scrollHeight;
       }
     </script>
