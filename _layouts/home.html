@@ -357,14 +357,8 @@ layout: default
       }
 
       async function askVihaan() {
-        const textarea = document.getElementById("chat-question");
-        const question = textarea.value.trim();
-
+        const question = document.getElementById("chat-question").value;
         const body = document.getElementById("chat-body");
-
-        // - User Bubble
-        const userBubble = document.createElement("div");
-        userBubble.classList.add
         body.innerHTML += `<div><strong>You:</strong> ${question}</div>`;
         document.getElementById("chat-question").value = "";
 
