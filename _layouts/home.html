@@ -265,7 +265,7 @@ layout: default
         background: white;
         border-radius: 10px;
         border: 1px solid #ccc;
-        display: none;
+        display: none;  /* Set initial display to none */
         flex-direction: column;
         box-shadow: 0 4px 20px rgba(0,0,0,0.2);
       }
@@ -378,12 +378,12 @@ layout: default
     <script>
       function toggleChat() {
         const chat = document.getElementById("chat-widget");
-        if (chat.style.display === "flex") {
-          chat.style.display = "none";
-        } else {
+        if (chat.style.display === "none" || chat.style.display === "") {
           chat.style.display = "flex";
           // Focus the input when chat is opened
           document.getElementById("chat-question").focus();
+        } else {
+          chat.style.display = "none";
         }
       }
 
