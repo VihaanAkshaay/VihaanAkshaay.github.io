@@ -252,127 +252,159 @@ layout: default
       </div>
     </div>
 
+<!-- Chat Button + Widget -->
+<style>
+  /* WIDGET */
+  #chat-widget {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    width: 320px;
+    max-height: 400px;
+    background: white;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    display: none;
+    flex-direction: column;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  }
+  #chat-header {
+    background: orange;
+    color: white;
+    padding: 10px;
+    font-weight: bold;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  #chat-body {
+    padding: 10px;
+    overflow-y: auto;
+    flex: 1;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  #chat-input {
+    border-top: 1px solid #ccc;
+    padding: 10px;
+  }
+  #chat-input textarea {
+    width: 100%;
+    resize: none;
+    height: 50px;
+    padding: 5px;
+    font-size: 14px;
+  }
 
-    <!-- Chat Button + Widget -->
-    <style>
-      #chat-widget {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        z-index: 9999;
-        width: 320px;
-        max-height: 400px;
-        background: white;
-        border-radius: 10px;
-        border: 1px solid #ccc;
-        display: none;
-        flex-direction: column;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-      }
+  /* TOGGLE BUTTON */
+  #chat-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: orange;
+    color: white;
+    border: none;
+    padding: 12px 16px;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    z-index: 9998;
+  }
 
-      #chat-header {
-        background: orange;
-        color: white;
-        padding: 10px;
-        font-weight: bold;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-      }
+  /* MESSAGE BUBBLES */
+  .message {
+    max-width: 75%;
+    padding: 8px 12px;
+    border-radius: 16px;
+    line-height: 1.4;
+    word-wrap: break-word;
+  }
+  .user-message {
+    background: #dcf8c6;
+    align-self: flex-end;
+  }
+  .assistant-message {
+    background: #f1f0f0;
+    align-self: flex-start;
+  }
+</style>
 
-      #chat-body {
-        padding: 10px;
-        overflow-y: auto;
-        flex: 1;
-        font-size: 14px;
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-      }
+<!-- Toggle Bubble -->
+<button id="chat-toggle">💬 Curious about Vihaan? Shoot your questions!</button>
 
-      #chat-input {
-        border-top: 1px solid #ccc;
-        padding: 10px;
-      }
+<!-- Chat Widget -->
+<div id="chat-widget">
+  <div id="chat-header">Vihaan's Personal AI Assistant</div>
+  <div id="chat-body"></div>
+  <div id="chat-input">
+    <textarea id="chat-question" placeholder="Ask me anything..."></textarea>
+    <button id="send-btn">Send</button>
+  </div>
+</div>
 
-      #chat-input textarea {
-        width: 100%;
-        resize: none;
-        height: 50px;
-        padding: 5px;
-        font-size: 14px;
-      }
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const chatWidget = document.getElementById('chat-widget');
+    const chatToggle = document.getElementById('chat-toggle');
+    const chatBody   = document.getElementById('chat-body');
+    const textarea   = document.getElementById('chat-question');
+    const sendBtn    = document.getElementById('send-btn');
 
-      #chat-toggle {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        background: orange;
-        color: white;
-        border: none;
-        padding: 12px 16px;
-        font-weight: bold;
-        border-radius: 50px;
-        cursor: pointer;
-        z-index: 9998;
-      }
+    // Toggle widget open/close
+    chatToggle.addEventListener('click', () => {
+      const isOpen = chatWidget.style.display === 'flex';
+      chatWidget.style.display = isOpen ? 'none' : 'flex';
+      if (!isOpen) textarea.focus();
+    });
 
-      /* common bubble styling */
-      .message {
-        padding: 8px 12px;
-        border-radius: 16px;
-        max-width: 75%;
-        word-wrap: break-word;
-        font-size: 14px;
-        line-height: 1.4;
-      }
+    // Send message
+    async function askVihaan() {
+      const q = textarea.value.trim();
+      if (!q) return;
 
-      /* user on the right, greenish */
-      .user-message {
-        background: #dcf8c6;
-        align-self: flex-end;
-      }
+      // User bubble
+      chatBody.innerHTML += 
+        `<div class="message user-message"><strong>You:</strong> ${q}</div>`;
+      textarea.value = '';
+      chatBody.scrollTop = chatBody.scrollHeight;
 
-      /* assistant on the left, light gray */
-      .assistant-message {
-        background: #f1f0f0;
-        align-self: flex-start;
-      }
-    </style>
+      // Placeholder assistant bubble
+      chatBody.innerHTML += 
+        `<div class="message assistant-message">…</div>`;
+      chatBody.scrollTop = chatBody.scrollHeight;
 
-    <div id="chat-widget">
-      <div id="chat-header">Vihaan's Personal AI Assistant</div>
-      <div id="chat-body"></div>
-      <div id="chat-input">
-        <textarea id="chat-question" placeholder="Ask me anything..."></textarea>
-        <button onclick="askVihaan()">Send</button>
-      </div>
-    </div>
-
-    <button id="chat-toggle" onclick="toggleChat()">💬 Curious about Vihaan? Shoot your questions!</button>
-
-    <script>
-      function toggleChat() {
-        const chat = document.getElementById("chat-widget");
-        chat.style.display = (chat.style.display === "flex") ? "none" : "flex";
-      }
-
-      async function askVihaan() {
-        const question = document.getElementById("chat-question").value;
-        const body = document.getElementById("chat-body");
-        body.innerHTML += `<div><strong>You:</strong> ${question}</div>`;
-        document.getElementById("chat-question").value = "";
-
-        const res = await fetch("https://vihaan-chatbot-api.onrender.com/query", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ query: question })
+      try {
+        const res = await fetch('https://vihaan-chatbot-api.onrender.com/query', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ query: q })
         });
+        const { answer } = await res.json();
 
-        const data = await res.json();
-        body.innerHTML += `<div><strong>Assistant: </strong> ${data.answer}</div>`;
-        body.scrollTop = body.scrollHeight;
+        // Replace placeholder with real answer
+        const bubbles = chatBody.querySelectorAll('.assistant-message');
+        bubbles[bubbles.length - 1].textContent = answer;
+      } catch (err) {
+        const bubbles = chatBody.querySelectorAll('.assistant-message');
+        bubbles[bubbles.length - 1].textContent = '⚠️ Something went wrong.';
+        console.error(err);
+      } finally {
+        chatBody.scrollTop = chatBody.scrollHeight;
       }
-    </script>
+    }
+
+    // Hook up Send button and Enter key
+    sendBtn.addEventListener('click', askVihaan);
+    textarea.addEventListener('keydown', e => {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        askVihaan();
+      }
+    });
+  });
+</script>
 
     <!--
     <div class="col-lg-8 offset-md-2">
