@@ -286,6 +286,10 @@ layout: default
         font-size: 14px;
       }
 
+      #chat-body div {
+        margin-bottom: 15px;
+      }
+
       #chat-input {
         border-top: 1px solid #ccc;
         padding: 10px;
@@ -361,10 +365,10 @@ layout: default
     </style>
 
     <div id="chat-widget">
-      <div id="chat-header">Talk to Vihaan's Personal AI Assistant</div>
+      <div id="chat-header">Vihaan's Personal AI Assistant</div>
       <div id="chat-body"></div>
       <div id="chat-input">
-        <textarea id="chat-question" placeholder="Ask me anything..."></textarea>
+        <textarea id="chat-question" placeholder="Shoot your questions..."></textarea>
         <button onclick="askVihaan()">Send</button>
       </div>
     </div>
@@ -410,11 +414,11 @@ layout: default
           const data = await res.json();
           // Remove typing indicator
           body.removeChild(typingIndicator);
-          body.innerHTML += `<div><strong>VihaanGPT:</strong> ${data.answer}</div>`;
+          body.innerHTML += `<div><strong> AI Assistant:</strong> ${data.answer}</div>`;
         } catch (error) {
           // Remove typing indicator
           body.removeChild(typingIndicator);
-          body.innerHTML += `<div><strong>VihaanGPT:</strong> Sorry, I encountered an error. Please try again.</div>`;
+          body.innerHTML += `<div><strong> AI Assistant:</strong> Sorry, I encountered an error. Please try again.</div>`;
         }
         
         body.scrollTop = body.scrollHeight;
