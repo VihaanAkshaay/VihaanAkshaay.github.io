@@ -26,7 +26,9 @@ itemize
 - accounts:
     - openai {for embeddings and model}: get OPENAI_API_KEY 
     - pinecone {for vector database of chunks}: get PINECONE_API_KEY; create a new index with the name "<your-name>-chatbot", and choose 'text-embedding-3-small' as the vector model (dimension should be 1536)
-    - fork this repo: https://github.com/VihaanAkshaay/Vihaan-chatbot-api and change index name in embed_pdfs.py to "<your-name>-chatbot"
+    - fork this repo: https://github.com/VihaanAkshaay/Vihaan-chatbot-api \
+                    embed_pdfs.py: change index name in  to "<your-name>-chatbot" \
+                    app.py: change prompt in generate_answer() from Vihaan Akshaay to "<your-name>" wherever necessary
     - move docs/ to the forked repo
     - create render account (to host the app) and open a new web service (choose this forked repo)
 
