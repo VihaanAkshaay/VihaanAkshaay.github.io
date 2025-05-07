@@ -253,7 +253,7 @@ layout: default
     </div>
 
 
-    <!-- Chat Button + Widget -->
+    <!-- ChatBot Button + Widget -->
     <style>
       #chat-widget {
         position: fixed;
@@ -265,7 +265,7 @@ layout: default
         background: white;
         border-radius: 10px;
         border: 1px solid #ccc;
-        display: none;
+        display: none;  /* Set initial display to none */
         flex-direction: column;
         box-shadow: 0 4px 20px rgba(0,0,0,0.2);
       }
@@ -284,6 +284,10 @@ layout: default
         overflow-y: auto;
         flex: 1;
         font-size: 14px;
+      }
+
+      #chat-body div {
+        margin-bottom: 15px;
       }
 
       #chat-input {
@@ -311,6 +315,52 @@ layout: default
         border-radius: 50px;
         cursor: pointer;
         z-index: 9998;
+        animation: popIn 0.5s ease-out;
+      }
+
+      @keyframes popIn {
+        0% {
+          transform: scale(0);
+          opacity: 0;
+        }
+        50% {
+          transform: scale(1.2);
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      .typing-indicator {
+        display: inline-block;
+        padding: 8px 12px;
+        background: #f0f0f0;
+        border-radius: 15px;
+        margin: 5px 0;
+      }
+
+      .typing-indicator span {
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        background: #666;
+        border-radius: 50%;
+        margin: 0 2px;
+        animation: typing 1s infinite;
+      }
+
+      .typing-indicator span:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+
+      .typing-indicator span:nth-child(3) {
+        animation-delay: 0.4s;
+      }
+
+      @keyframes typing {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-5px); }
       }
     </style>
 
@@ -318,33 +368,79 @@ layout: default
       <div id="chat-header">Vihaan's Personal AI Assistant</div>
       <div id="chat-body"></div>
       <div id="chat-input">
-        <textarea id="chat-question" placeholder="Ask me anything..."></textarea>
+        <textarea id="chat-question" placeholder="Shoot your questions..." onkeydown="handleKeyPress(event)"></textarea>
         <button onclick="askVihaan()">Send</button>
       </div>
     </div>
 
-    <button id="chat-toggle" onclick="toggleChat()">💬 Curious about Vihaan? Shoot your questions!</button>
+    <button id="chat-toggle" onclick="toggleChat()">💬 Curious about Vihaan? Ask me anything!</button>
 
     <script>
       function toggleChat() {
         const chat = document.getElementById("chat-widget");
-        chat.style.display = (chat.style.display === "flex") ? "none" : "flex";
+        if (chat.style.display === "none" || chat.style.display === "") {
+          chat.style.display = "flex";
+          // Focus the input when chat is opened
+          document.getElementById("chat-question").focus();
+        } else {
+          chat.style.display = "none";
+        }
+      }
+
+      function handleKeyPress(event) {
+        if (event.key === "Enter" && !event.shiftKey) {
+          event.preventDefault();
+          askVihaan();
+        }
       }
 
       async function askVihaan() {
-        const question = document.getElementById("chat-question").value;
+        const questionInput = document.getElementById("chat-question");
+        const question = questionInput.value.trim();
+        if (!question) return;
+
         const body = document.getElementById("chat-body");
-        body.innerHTML += `<div><strong>You:</strong> ${question}</div>`;
-        document.getElementById("chat-question").value = "";
+        
+        // Create and append user message
+        const userMessage = document.createElement("div");
+        userMessage.innerHTML = `<strong>You:</strong> ${question}`;
+        body.appendChild(userMessage);
+        
+        // Clear input immediately
+        questionInput.value = "";
 
-        const res = await fetch("https://vihaan-chatbot-api.onrender.com/query", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ query: question })
-        });
+        // Add typing indicator
+        const typingIndicator = document.createElement("div");
+        typingIndicator.className = "typing-indicator";
+        typingIndicator.innerHTML = '<span></span><span></span><span></span>';
+        body.appendChild(typingIndicator);
+        body.scrollTop = body.scrollHeight;
 
-        const data = await res.json();
-        body.innerHTML += `<div><strong>Assistant: </strong> ${data.answer}</div>`;
+        try {
+          const res = await fetch("https://vihaan-chatbot-api.onrender.com/query", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ query: question })
+          });
+
+          const data = await res.json();
+          // Remove typing indicator
+          body.removeChild(typingIndicator);
+          
+          // Create and append AI response
+          const aiMessage = document.createElement("div");
+          aiMessage.innerHTML = `<strong>AI Assistant:</strong> ${data.answer}`;
+          body.appendChild(aiMessage);
+        } catch (error) {
+          // Remove typing indicator
+          body.removeChild(typingIndicator);
+          
+          // Create and append error message
+          const errorMessage = document.createElement("div");
+          errorMessage.innerHTML = `<strong>AI Assistant:</strong> Sorry, I encountered an error. Please try again.`;
+          body.appendChild(errorMessage);
+        }
+        
         body.scrollTop = body.scrollHeight;
       }
     </script>
