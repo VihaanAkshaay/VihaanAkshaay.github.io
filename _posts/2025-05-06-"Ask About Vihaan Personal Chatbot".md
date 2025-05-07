@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Ask About Vihaan'
+title: 'Build a Personal Chatbot to Answer Questions About Yourself'
 author: Vihaan Akshaay
 tags: ['dev-log']
 date: '2025-05-06 20:45:23 +0530'
