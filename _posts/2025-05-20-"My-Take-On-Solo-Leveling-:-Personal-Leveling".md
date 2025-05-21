@@ -43,7 +43,7 @@ This was when I was wondering, why not work on this a little bit more? Also, [RA
 I started with a simple front end. Check this video out (I've never touched React/Typescript before, so this was mostly just vibe coding and debugging)
 
 <iframe width="560" height="315" 
-        src="https://www.youtube.com/watch?v=g-UUaUwOGvg" 
+        src="https://www.youtube.com/embed/g-UUaUwOGvg"
         frameborder="0" 
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
         allowfullscreen>
