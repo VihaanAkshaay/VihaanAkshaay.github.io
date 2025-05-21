@@ -2,7 +2,7 @@
 layout: post
 title: 'My Take On Solo Leveling - Personal Leveling'
 author: Vihaan Akshaay
-tags: ['dev-log']
+tags: ['side-quests']
 date: '2025-05-06 20:45:23 +0530'
 category: Notes
 summary: Introduction to Personal Leveling
