@@ -73,16 +73,16 @@ My prompt was something like this: I want to practice more dynamic programming. 
 
 It made calendar events and added the memory in the graphiti server. This is how it looked!!
 
-![Graph Memory](/assets/img/posts/My-Take-On-Solo-Leveling-:-Personal-Leveling/graph.png)
-
-![Calendar Events](/assets/img/posts/My-Take-On-Solo-Leveling-:-Personal-Leveling/calendar.png)
+<img src="/assets/img/posts/My-Take-On-Solo-Leveling-:-Personal-Leveling/graph.png" style="max-width: 100%; height: auto;" />
+<img src="/assets/img/posts/My-Take-On-Solo-Leveling-:-Personal-Leveling/calendar.png" style="max-width: 100%; height: auto;" />
 
 
 Well, here is where I wanted to test if the program was any good. I said, I'm done with fibonacci. The agent immediately deleted that node from the graph. :(
 To be honest, I would have thought, keeping track of the problems I've done would be a good idea since it'll kinda help track progress as well as give a better idea of my skill set?
 So I reprompted it asked the agent to keep track of the problems I've done and it altered the graph to look like this instead (which I thought was more apt for this use case)
 
-![Graph Memory](/assets/img/posts/My-Take-On-Solo-Leveling-:-Personal-Leveling/graph-after-change.png)
+<img src="/assets/img/posts/My-Take-On-Solo-Leveling-:-Personal-Leveling/graph-after-change.png" style="max-width: 100%; height: auto;" />
+
 
 That's version 1.0
 I'm so excited for this, not because it works and does something, or that I've learned a lot of LLM tools (hmmmm maybe a bit but that's not the core reason) but because of the potential for improvements.
