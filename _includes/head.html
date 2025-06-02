@@ -108,19 +108,27 @@
       integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
       crossorigin="anonymous"></script>
 
-    <!-- Page Tracking Script -->
-    <script>
-    (function () {
+  <!-- Page-tracking script -->
+  <script>
+  (function () {
+    try {
+      /* stable session id */
       const sid = localStorage.getItem('session_id') || (() => {
-        const newId = crypto.randomUUID();
-        localStorage.setItem('session_id', newId);
-        return newId;
+        const id = crypto.randomUUID();
+        localStorage.setItem('session_id', id);
+        return id;
       })();
-
-      fetch("@https://vihaan-chatbot-api.onrender.com/track?page=" + 
-            encodeURIComponent(window.location.pathname) +
-            "&sid=" + sid);
-    })();
-    </script>
+  
+      /* send page-view */
+      fetch("https://vihaan-chatbot-api.onrender.com/track"
+            + "?page=" + encodeURIComponent(location.pathname)
+            + "&sid="  + sid, { mode: "cors" })
+        .catch(err => console.error("track-fetch failed", err));
+    } catch (e) {
+      console.error("tracker init error", e);
+    }
+  })();
+  </script>
+  
 
   </head>
