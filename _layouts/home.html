@@ -403,9 +403,12 @@ layout: default
       chatBody.scrollTop = chatBody.scrollHeight;
 
       try {
+        const sid = localStorage.getItem("session_id");
         const res = await fetch('https://vihaan-chatbot-api.onrender.com/query', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: { 'Content-Type': 'application/json',
+            "X-Session-Id": sid    
+          },
           body: JSON.stringify({ query: q })
         });
         const { answer } = await res.json();
