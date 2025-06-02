@@ -108,7 +108,19 @@
       integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
       crossorigin="anonymous"></script>
 
+    <!-- Page Tracking Script -->
+    <script>
+    (function () {
+      const sid = localStorage.getItem('session_id') || (() => {
+        const newId = crypto.randomUUID();
+        localStorage.setItem('session_id', newId);
+        return newId;
+      })();
 
-  
+      fetch("@https://vihaan-chatbot-api.onrender.com/track?page=" + 
+            encodeURIComponent(window.location.pathname) +
+            "&sid=" + sid);
+    })();
+    </script>
 
   </head>

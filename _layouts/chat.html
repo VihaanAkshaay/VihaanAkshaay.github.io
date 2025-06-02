@@ -22,7 +22,7 @@
       const q = document.getElementById("question").value;
       const resBox = document.getElementById("response");
       resBox.innerText = "Loading...";
-      const res = await fetch("https://vihaan-personal-chatbot.onrender.com/query", {
+      const res = await fetch("https://vihaan-chatbot-api.onrender.com/query", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ query: q })
