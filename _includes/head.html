@@ -108,27 +108,58 @@
       integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
       crossorigin="anonymous"></script>
 
-  <!-- Page-tracking script -->
-  <script>
+<!-- page-view + time-on-page tracker -->
+<script>
   (function () {
-    try {
-      /* stable session id */
-      const sid = localStorage.getItem('session_id') || (() => {
-        const id = crypto.randomUUID();
-        localStorage.setItem('session_id', id);
-        return id;
-      })();
+    /* -------- stable session id -------- */
+    const sid = localStorage.getItem('session_id') || (() => {
+      const id = (crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).slice(2));
+      localStorage.setItem('session_id', id);
+      return id;
+    })();
   
-      /* send page-view */
-      fetch("https://vihaan-chatbot-api.onrender.com/track"
-            + "?page=" + encodeURIComponent(location.pathname)
-            + "&sid="  + sid, { mode: "cors" })
-        .catch(err => console.error("track-fetch failed", err));
-    } catch (e) {
-      console.error("tracker init error", e);
+    /* -------- immediate page-view -------- */
+    fetch("https://vihaan-chatbot-api.onrender.com/track"
+          + "?page=" + encodeURIComponent(location.pathname)
+          + "&sid="  + sid, { mode: "cors" })
+      .then(r => console.log("📡 /track →", r.status))
+      .catch(err => console.error("‼️ /track error", err));
+  
+    /* -------- time-on-page (in its own try/catch) -------- */
+    try {
+      let visStart = Date.now();
+      let total    = 0;
+  
+      document.addEventListener("visibilitychange", () => {
+        if (document.visibilityState === "hidden") {
+          total += Date.now() - visStart;
+        } else {
+          visStart = Date.now();
+        }
+      });
+  
+      window.addEventListener("pagehide", () => {
+        if (document.visibilityState !== "hidden") {
+          total += Date.now() - visStart;
+        }
+        const body = new URLSearchParams({
+          page:    location.pathname,
+          sid:     sid,
+          started: new Date(visStart).toISOString(),
+          ms:      Math.round(total)
+        });
+        const ok = navigator.sendBeacon(
+          "https://vihaan-chatbot-api.onrender.com/track-time",
+          body
+        );
+        console.log("📡 /track-time beacon sent?", ok, "ms=", total);
+      });
+    } catch (err) {
+      console.error("‼️ time-tracker block failed:", err);
     }
   })();
   </script>
+  
   
 
   </head>
