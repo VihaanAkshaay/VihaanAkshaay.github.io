@@ -108,27 +108,66 @@
       integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
       crossorigin="anonymous"></script>
 
-  <!-- Page-tracking script -->
-  <script>
+<!-- Page-view + time-on-page tracker -->
+<script>
   (function () {
-    try {
-      /* stable session id */
-      const sid = localStorage.getItem('session_id') || (() => {
-        const id = crypto.randomUUID();
-        localStorage.setItem('session_id', id);
-        return id;
-      })();
+    /* ------------------------------------------------------------------ */
+    /* stable session id (reuse across pages & visits)                    */
+    /* ------------------------------------------------------------------ */
+    const sid = localStorage.getItem('session_id') || (() => {
+      const id = crypto.randomUUID();
+      localStorage.setItem('session_id', id);
+      return id;
+    })();
   
-      /* send page-view */
-      fetch("https://vihaan-chatbot-api.onrender.com/track"
-            + "?page=" + encodeURIComponent(location.pathname)
-            + "&sid="  + sid, { mode: "cors" })
-        .catch(err => console.error("track-fetch failed", err));
-    } catch (e) {
-      console.error("tracker init error", e);
-    }
+    /* ------------------------------------------------------------------ */
+    /* ① send the standard page-view                                     */
+    /* ------------------------------------------------------------------ */
+    fetch("https://vihaan-chatbot-api.onrender.com/track"
+          + "?page=" + encodeURIComponent(location.pathname)
+          + "&sid="  + sid, { mode: "cors" })
+      .catch(err => console.error("track-fetch failed", err));
+  
+    /* ------------------------------------------------------------------ */
+    /* ② measure *visible* time-on-page (add-start)                       */
+    /* ------------------------------------------------------------------ */
+    let visStart = Date.now();   // ms since epoch when tab became visible
+    let total    = 0;            // accumulate only time the tab is visible
+  
+    /* pause/resume when user switches tabs or minimises the window */
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) {
+        total += Date.now() - visStart;       // add current chunk
+      } else {
+        visStart = Date.now();                // resume timing
+      }
+    });
+  
+    /* flush once, reliably, when the page is unloading */
+    window.addEventListener("pagehide", () => {
+      if (!document.hidden) {
+        total += Date.now() - visStart;       // capture last foreground chunk
+      }
+  
+      const body = new URLSearchParams({
+        page:    location.pathname,
+        sid:     sid,
+        started: new Date(visStart).toISOString(),
+        ms:      Math.round(total)
+      });
+  
+      /* sendBeacon survives tab close / navigation */
+      navigator.sendBeacon(
+        "https://vihaan-chatbot-api.onrender.com/track-time",
+        body
+      );
+    });
+    /* ------------------------------------------------------------------ */
+    /* (add-end)                                                          */
+    /* ------------------------------------------------------------------ */
   })();
   </script>
+  
   
 
   </head>
