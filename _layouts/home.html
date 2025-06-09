@@ -329,24 +329,6 @@ layout: default
     background: #f1f0f0;
     align-self: flex-start;
   }
-  /* Feedback buttons */
-  .feedback {
-    display: flex;
-    gap: 8px;
-    margin-top: 4px;
-    margin-left: 8px;
-  }
-  .feedback button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-    padding: 2px 6px;
-    border-radius: 4px;
-  }
-  .feedback button:hover {
-    background: #f0f0f0;
-  }
   /* TOGGLE */
   /* 1) Pop-in on load */
   @keyframes popIn {
@@ -432,15 +414,6 @@ layout: default
         const { answer } = await res.json();
         const bubbles = chatBody.querySelectorAll('.assistant-message');
         bubbles[bubbles.length - 1].textContent = answer;
-        
-        // Add feedback buttons after the answer
-        const feedbackDiv = document.createElement('div');
-        feedbackDiv.className = 'feedback';
-        feedbackDiv.innerHTML = `
-          <button onclick="sendFeedback(1)">👍</button>
-          <button onclick="sendFeedback(-1)">👎</button>
-        `;
-        bubbles[bubbles.length - 1].parentNode.insertBefore(feedbackDiv, bubbles[bubbles.length - 1].nextSibling);
       } catch (err) {
         console.error(err);
         const bubbles = chatBody.querySelectorAll('.assistant-message');
@@ -461,23 +434,6 @@ layout: default
     chatClose.addEventListener('click', () => {
       chatWidget.style.display = 'none';
     });
-
-    // Add feedback function
-    function sendFeedback(rating) {
-      const lastUserMsg = document.querySelector('.user-message:last-child')?.textContent.replace('You: ', '') || '';
-      const lastBotMsg = document.querySelector('.assistant-message:last-child')?.textContent || '';
-      
-      fetch("https://vihaan-chatbot-api.onrender.com/feedback", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          question: lastUserMsg,
-          answer: lastBotMsg,
-          rating,
-          session_id: localStorage.getItem('session_id')
-        })
-      });
-    }
   });
 </script>
 
