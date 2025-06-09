@@ -341,12 +341,11 @@ layout: default
     border: none;
     cursor: pointer;
     font-size: 16px;
-    padding: 4px 8px;
+    padding: 2px 6px;
     border-radius: 4px;
-    transition: background-color 0.2s;
   }
   .feedback button:hover {
-    background-color: rgba(0,0,0,0.1);
+    background: #f0f0f0;
   }
   /* TOGGLE */
   /* 1) Pop-in on load */
@@ -402,9 +401,6 @@ layout: default
     const textarea   = document.getElementById('chat-question');
     const sendBtn    = document.getElementById('send-btn');
 
-    let lastUserMsg = '';
-    let lastBotMsg = '';
-
     chatToggle.addEventListener('click', () => {
       const open = chatWidget.style.display === 'flex';
       chatWidget.style.display = open ? 'none' : 'flex';
@@ -415,7 +411,6 @@ layout: default
       const q = textarea.value.trim();
       if (!q) return;
 
-      lastUserMsg = q;
       chatBody.innerHTML +=
         `<div class="message user-message"><strong>You:</strong> ${q}</div>`;
       textarea.value = '';
@@ -435,19 +430,17 @@ layout: default
           body: JSON.stringify({ query: q })
         });
         const { answer } = await res.json();
-        lastBotMsg = answer;
         const bubbles = chatBody.querySelectorAll('.assistant-message');
-        const lastBubble = bubbles[bubbles.length - 1];
-        lastBubble.textContent = answer;
+        bubbles[bubbles.length - 1].textContent = answer;
         
-        // Add feedback buttons after the bot's message
+        // Add feedback buttons after the answer
         const feedbackDiv = document.createElement('div');
         feedbackDiv.className = 'feedback';
         feedbackDiv.innerHTML = `
           <button onclick="sendFeedback(1)">👍</button>
           <button onclick="sendFeedback(-1)">👎</button>
         `;
-        lastBubble.parentNode.insertBefore(feedbackDiv, lastBubble.nextSibling);
+        bubbles[bubbles.length - 1].parentNode.insertBefore(feedbackDiv, bubbles[bubbles.length - 1].nextSibling);
       } catch (err) {
         console.error(err);
         const bubbles = chatBody.querySelectorAll('.assistant-message');
@@ -456,19 +449,6 @@ layout: default
         chatBody.scrollTop = chatBody.scrollHeight;
       }
     }
-
-    window.sendFeedback = function(rating) {
-      fetch("https://vihaan-chatbot-api.onrender.com/feedback", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          question: lastUserMsg,
-          answer: lastBotMsg,
-          rating,
-          session_id: localStorage.getItem('session_id')
-        })
-      });
-    };
 
     sendBtn.addEventListener('click', askVihaan);
     textarea.addEventListener('keydown', e => {
@@ -481,6 +461,23 @@ layout: default
     chatClose.addEventListener('click', () => {
       chatWidget.style.display = 'none';
     });
+
+    // Add feedback function
+    function sendFeedback(rating) {
+      const lastUserMsg = document.querySelector('.user-message:last-child')?.textContent.replace('You: ', '') || '';
+      const lastBotMsg = document.querySelector('.assistant-message:last-child')?.textContent || '';
+      
+      fetch("https://vihaan-chatbot-api.onrender.com/feedback", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          question: lastUserMsg,
+          answer: lastBotMsg,
+          rating,
+          session_id: localStorage.getItem('session_id')
+        })
+      });
+    }
   });
 </script>
 
