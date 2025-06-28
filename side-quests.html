@@ -16,7 +16,7 @@ subtitle: Am I dreamin', is there more like us?
     <div class="row">
         <div class="col-lg-8 offset-md-2">
             <div class="posts-list">
-                {% assign tagged_posts = site.posts | where_exp: "post", "post.tags contains 'side-quest'" %}
+                {% assign tagged_posts = site.posts | where_exp: "post", "post.tags contains 'side-quests'" %}
                 {% for post in tagged_posts %}
                 <div class="post-card">
                     <h2><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2>
