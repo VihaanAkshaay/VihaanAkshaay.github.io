@@ -9,7 +9,7 @@ summary: Curious about how we remember people
 thumbnail: PillarsAndEnvy.png
 ---
 
-<img src="/assets/img/PillarsAndEnvy.jpg" alt="Pillars and Envy" class="img-fluid" style="max-width: 100%; height: auto;">
+![](/assets/img/posts/PillarsAndEnvy.jpg){:class="img-fluid"}
 
 I remember hearing that plants wither bearing the sorrow of its surrounding.
 As sad as it sounds, I think I feel good knowing this. At least there's an existing object that makes progress towards a perceived goal, at least one that its convinced of?
@@ -20,7 +20,7 @@ For someone who is lost and confused of one-self, conflicting pillars are like e
 
 I think, we humans, work in a way where, unfortunately, no matter what your first hypothesis/thought is, you are likely to question it after giving it some time, and if you inherently believe your system1 (first) thinking is always wrong, and you always need system2, this unfortunately gets in a never ending loop of doom. That way, no matter what the scenario or the situation is, all you're sure of or what you've learnt over time, is the fact that you question yourself about everything you think.
 
-<img src="/assets/img/PillarSystems.png" alt="Pillar Systems" class="img-fluid" style="max-width: 100%; height: auto;">
+![](/assets/img/posts/PillarSystems.png){:class="img-fluid"}
 
 I'd like to think my pillars are a bunch of skeptical experts. I guess I choose a pillar given a scenario, and the moment this pillar provides me with a thought, the others doubters rush in to question this. That way, I don't have to believe all I am is questions and doubts, but rather, a bunch of cynical gramps who, as much as they fight each other wanting to be right, are also trying to be wrong for my sake. :D
 
