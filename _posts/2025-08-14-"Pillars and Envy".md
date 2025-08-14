@@ -5,7 +5,7 @@ author: Vihaan Akshaay
 tags: ['personal']
 date: '2025-08-14 10:35:23 +0900'
 category: Personal
-summary: Curious about how we remember people
+summary: Jusqu'ici, tout va bien
 thumbnail: PillarsAndEnvy.png
 ---
 
