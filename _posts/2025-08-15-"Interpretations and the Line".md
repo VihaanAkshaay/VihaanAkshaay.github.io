@@ -10,7 +10,7 @@ thumbnail: PillarsAndEnvy.png
 ---
 
 
-![](/assets/img/posts/InterpretationsAndTheLine.png){:class="img-fluid"}
+![](/assets/img/posts/InterpretationsAndTheLine.jpg){:class="img-fluid"}
 
 I was very upset (well maybe puzzled?) with the multiple online intepretations of something I read recently, and I have a hypothesis about this haha. I feel Doestoevsky is weirdly one of those guys who got a lot of things right? Well or maybe, there are fundamental problems that exist. Very well, I love how this kinda agrees with the fact that, one creates one's own problems? Maybe this fact was the thing that stayed timeless?
 
