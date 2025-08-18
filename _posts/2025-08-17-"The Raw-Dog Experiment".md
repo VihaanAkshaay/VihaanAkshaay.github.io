@@ -9,7 +9,7 @@ summary: I built these walls with my two hands, I laid every single part.
 thumbnail: RawDogExperiment.png
 ---
 
-This isn't too interesting, but well, I just wanted to put it out.
+This isn't too interesting, but well, I just wanted to put it out, more of an update than a post.
 
 I consistently clock 100K minutes on spotify a year, well and guess how many minutes are there in a year? its 525,600. I have used spotify, the past few years (since 2020) for almost 1/5th of my life. Although this might sounds great, I recently realised the existence of a correlation.
 
@@ -22,3 +22,5 @@ How your body and mind are mostly a closed loop, one affecting the other, I real
 Starting Monday, 18th August, 2025, I am going to list out things I want to finish by the end of 5 days, and just do it, nothing else.
 I don't want to go to sleep listening to valorant vods/podcasts. I don't want to need music, to shower, videos to eat or just ambient noise to function in life. I guess the goal is to just be able to 'execute' something if I want to. Take control of my body, and give my mind the power to be able to just do it. Meanwhile, this was kinda what inspired me to try this out - https://youtu.be/L3gwLK5ZVgE?si=fY9pV36ceRKYobhg
 She had really nice insights, and now I wanna see how it affects me.
+
+I want to be able to just sit with my thoughts for a few minute when I want to. Although it freaks me out, just the thought of it, I want to put myself through it, because, for some reason, deep down, it feels like I might end up never being able to.
