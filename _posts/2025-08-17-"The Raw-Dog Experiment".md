@@ -11,7 +11,7 @@ thumbnail: RawDogExperiment.png
 
 This isn't too interesting, but well, I just wanted to put it out, more of an update than a post.
 
-I consistently clock 100K minutes on spotify a year, well and guess how many minutes are there in a year? its 525,600. I have used spotify, the past few years (since 2020) for almost 1/5th of my life. Although this might sounds great, I recently realised the existence of a correlation.
+I consistently clock 100K minutes on spotify a year, well and guess how many minutes are there in a year? its 525,600. I have used spotify, the past few years (since 2020) for almost 1/5th of my life. Although this might sound great, I recently realised the existence of a correlation.
 
 Kiwi (our pinapple green cheek conure) learnt to do 'round-round' by first following a treat to go around, and then getting a treat at the end of it. If taking a cold shower in the morning, is going to affect the way your brain works for the rest of the day drastically, then I've consciously taken some horrible (potentially horrible) decisions in life. :(. Dopamine Nation mentions that pain and pleasure are processed in the same region of the brain, and typically body, like most forces of nature, tries to counteract sudden. Like when you cry out loud, and you feel a little better at the end, and how when you know something isn't right, when you've been relaxed and happy for too long haha. Well, all the stereotypical kids in movies and shows (and irl too), that wear headphones all the time are typically very non-chalant and kinda detached? indifferent? Maybe its probably because of how music continuously pushes the pleasure side, that the brain reacts with a kind of mellow sadness to counter.
 
