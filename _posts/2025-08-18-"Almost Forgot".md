@@ -5,7 +5,7 @@ author: Vihaan Akshaay
 tags: ['personal']
 date: '2025-08-18 22:56:23 +0900'
 category: Personal
-summary: I forgot to write this post.
+summary: And behind these walls a coward stands, An eagle and a broken heart.
 thumbnail: AlmostForgot.png
 ---
 
