@@ -8,6 +8,7 @@ category: Personal
 summary: And behind these walls a coward stands, an ego and a broken heart.
 thumbnail: AlmostForgot.jpg
 ---
+
 <div style="display: flex; gap: 20px; margin: 20px 0;">
   <div style="flex: 0 0 66%;">
     <img src="/assets/img/posts/AlmostForgot.png" class="img-fluid" style="width: 100%; height: auto;">
